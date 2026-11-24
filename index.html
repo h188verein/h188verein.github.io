@@ -299,7 +299,7 @@ const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&
 const uid=()=>Math.random().toString(36).slice(2,9);
 const inFrame=(()=>{try{return window.self!==window.top}catch(e){return true}})();
 
-/* ---------- Startdaten: 1. Mainspitz-Schau, übernommen aus dem gedruckten Katalog ---------- */
+/* ---------- Startdaten: leere Vorlage, alles wird im Programm eingerichtet ---------- */
 const RASSEN_TXT=`# Abteilung I Große Rassen
 Deutsche Riesen (DR): dunkel-/eisengrau, wildgrau, wildfarben, hasengrau, hasenfarbig, schwarz, blau, blaugrau, chinchillafarbig, gelb, weiß
 Deutsche Riesenschecken (DRSch): schwarz-weiß, blau-weiß, havannafarbig-weiß, schwarz (homozygot), blau (homozygot), havannafarbig (homozygot)
@@ -407,147 +407,24 @@ Zwergwidder-Rexe (ZwWRex): weiß BlA (=Blauaugen), blau
 Zwerg-Rexe (ZwRex): sallanderfarbig
 Deutsche Riesen (DR): havannafarbig
 Rhönkaninchen (Rh): rot`;
-const ZU=[['ag','Arkadiusz Geblonski','65474 Bischofsheim','H 96',0],['hb','Harald Betz','55270 Essenheim','P 108',0],['av','Albrecht Veith','55576 Badenheim','P 108',0],
-['im','Iris Müller','','H 188',0],['be','Benjamin Enders','55278 Mommenheim','P 142',0],['gf','Günter Fritz','65479 Raunheim','H 188',0],['af','Alexander Frieß','63840 Hausen','B 1343',0],
-['mb','Manfred Bader','55278 Mommenheim','P 142',0],['vf','Volker Fischer','64580 Radheim','H 432',0],['rl','Roswitha Liebler','63840 Hausen','B 1343',0],['nm','Niklas Müller','65474 Bischofsheim','H 188',1],
-['se','Sophie Enders','55278 Mommenheim','P 142',1],['rf','Richard Forg','65428 Rüsselsheim am Main','H 188',0],['jf','Jannik Frieß','63840 Hausen','B 1343',0],['mw','Melanie Wagner','','H 188',0],['lg','Lisa Günther','65474 Bischofsheim','H 188',0]];
-const RK={DR:'Deutsche Riesen (DR)',Al:'Alaska (Al)',DKlW:'Deutsche Kleinwidder (DKlW)',Rh:'Rhönkaninchen (Rh)',KlS:'Kleinsilber (KlS)',M:'Marderkaninchen (M)',SchwGr:'Schwarzgrannen (SchwGr)',ZwW:'Zwergwidder (ZwW)',FbZw:'Farbenzwerge Typ B (FbZw)',ZwRex:'Zwerg-Rexe (ZwRex)',LK:'Löwenköpfchen (LK)'};
-// Käfig|Züchter|Rasse|Farbe|Geschl(1=1,0 0=0,1)|Kennz. rechts|links|Punkte|Zuchtgruppe|Klasse|Verkauf
-const TI=`1|ag|DR|dunkel-/eisengrau|1|H 96|252|nb|A|III|
-2|ag|DR|dunkel-/eisengrau|1|H 96|155|96|A||
-3|ag|DR|dunkel-/eisengrau|0|H 96|154|94.5|A||
-4|ag|DR|dunkel-/eisengrau|0|H 96|153|95.5|A||
-5|ag|DR|dunkel-/eisengrau|0|H 96|152|95|||
-6|hb|DR|wildfarben|0|P 108|3526|95.5|A|III|
-7|hb|DR|wildfarben|0|P 108|4533|96|A||
-8|hb|DR|wildfarben|1|P 108|3527|94.5|A||
-9|hb|DR|wildfarben|0|P 108|3524|nb|A||
-10|hb|DR|wildfarben|0|P 108|3517|94.5|||
-11|ag|DR|schwarz|1|H 96|151|95.5|||
-12|av|DR|weiß|1|P 108|2523|95|A|III|
-13|av|DR|weiß|1|P 108|2521|96|A||
-14|av|DR|weiß|1|P 108|2519|96.5|A||
-15|av|DR|weiß|1|P 108|2520|95.5|A||
-16|im|Al||1|H 188|451|nb|||30
-17|im|Al||0|H 188|452||||30
-18|be|DKlW|wildfarben|1|P 142|4514|96|A|II|
-19|be|DKlW|wildfarben|0|P 142|4516|96|A||
-20|be|DKlW|wildfarben|1|P 142|4517|96|A||
-21|be|DKlW|wildfarben|1|P 142|4519|96.5|A||
-22|gf|DKlW|wildfarben|1|H 188|4544|96.5|||
-23|gf|DKlW|wildfarben|0|H 188|4549|96.5|||
-24|af|DKlW|wildfarben-weiß|0|B 1343|158|96|A|III|
-25|af|DKlW|wildfarben-weiß|1|B 1343|2514|96|A||30
-26|af|DKlW|wildfarben-weiß|1|B 1343|152|nb|A||
-27|af|DKlW|wildfarben-weiß|0|B 1343|4528|95.5|A||
-28|mb|Rh||1|W 693|455|93|||
-29|mb|KlS|schwarz|1|P 142|1518|96|A|II|
-30|mb|KlS|schwarz|0|P 142|158|96.5|A||
-31|mb|KlS|schwarz|0|P 142|1521|96.5|A||
-32|mb|KlS|schwarz|0|P 142|1520|96.5|A||
-33|mb|KlS|schwarz|0|P 142|3523|96.5|||
-34|gf|KlS|gelb|1|H 188|258|96|A|II|
-35|gf|KlS|gelb|0|H 188|259|96|A||
-36|gf|KlS|gelb|1|H 188|151|95.5|A||
-37|gf|KlS|gelb|1|H 188|152|96|A||
-38|vf|M|braun|0|H 432|458|96|A|III|40
-39|vf|M|braun|1|H 432|453|nb|A||40
-40|vf|M|braun|1|H 432|5510|95|A||40
-41|vf|M|braun|1|H 432|451|96|A||
-42|mb|SchwGr||0|P 142|1510|96.5|A|II|
-43|mb|SchwGr||1|P 142|158|96.5|A||
-44|mb|SchwGr||1|P 142|3546|96|A||
-45|mb|SchwGr||1|P 142|3545|nb|A||
-46|mb|SchwGr||1|P 142|1519|96.5|B|III|
-47|mb|SchwGr||1|P 142|1513|96.5|B||
-48|mb|SchwGr||1|P 142|1522|96.5|B||
-49|mb|SchwGr||0|P 142|155|97|B||
-50|mb|SchwGr||0|P 142|1517|97.5|C|III|
-51|mb|SchwGr||1|P 142|1515|96.5|C||
-52|mb|SchwGr||1|P 142|1516|96.5|C||
-53|mb|SchwGr||1|P 142|153|96|C||
-54|rl|ZwW|marderfarbig blau|1|B 1343|457|96|A|III|20
-55|rl|ZwW|marderfarbig blau|1|B 1343|458|96|A||20
-56|rl|ZwW|marderfarbig blau|0|B 1343|5516|97|A||30
-57|rl|ZwW|marderfarbig blau|0|B 1343|352|96.5|A||
-58|nm|ZwW|weiß BlA (=Blauaugen)|1|HJ 188|256|95.5|A|II|
-59|nm|ZwW|weiß BlA (=Blauaugen)|1|HJ 188|258|96|A||
-60|nm|ZwW|weiß BlA (=Blauaugen)|0|HJ 188|2511|96|A||
-61|nm|ZwW|weiß BlA (=Blauaugen)|0|HJ 188|2512|96.5|A||
-62|se|ZwW|weiß BlA (=Blauaugen)|1|PJ 142|151|95.5|A|III|
-63|se|ZwW|weiß BlA (=Blauaugen)|1|PJ 142|152|96|A||
-64|se|ZwW|weiß BlA (=Blauaugen)|1|PJ 142|153|95|A||
-65|se|ZwW|weiß BlA (=Blauaugen)|1|PJ 142|255|nb|A||
-66|nm|ZwW|weiß BlA (=Blauaugen)|1|HJ 188|5525|95|B|III|
-67|nm|ZwW|weiß BlA (=Blauaugen)|0|HJ 188|5519|96.5|B||
-68|nm|ZwW|weiß BlA (=Blauaugen)|0|HJ 188|5520|97|B||
-69|nm|ZwW|weiß BlA (=Blauaugen)|1|HJ 188|55130|96|B||
-70|nm|ZwW|weiß BlA (=Blauaugen)|1|HJ 188|252|96|C|III|
-71|nm|ZwW|weiß BlA (=Blauaugen)|1|HJ 188|257|96.5|C||
-72|nm|ZwW|weiß BlA (=Blauaugen)|1|HJ 188|3513|95|C||
-73|nm|ZwW|weiß BlA (=Blauaugen)|0|HJ 188|3514|96|C||
-74|nm|ZwW|weiß BlA (=Blauaugen)|1|HJ 188|251|96|||
-75|nm|ZwW|weiß BlA (=Blauaugen)|1|HJ 188|5515|96.5|||
-76|rf|FbZw|blau|1|H 188|452|nb|A|II|
-77|rf|FbZw|blau|1|H 188|653|94|A||
-78|rf|FbZw|blau|1|H 188|655|95|A||
-79|rf|FbZw|blau|0|H 188|657|nb|A||
-80|vf|FbZw|rhönfarbig|1|H 432|251|95.5|A|I|
-81|vf|FbZw|rhönfarbig|0|H 432|457|95.5|A||20
-82|vf|FbZw|rhönfarbig|0|H 432|456|96|A||
-83|vf|FbZw|rhönfarbig|1|H 432|453|95|A||
-84|jf|FbZw|lohfarbig braun|1|B 1343|351|96|A|III|20
-85|jf|FbZw|lohfarbig braun|1|B 1343|555|95|A||30
-86|jf|FbZw|lohfarbig braun|1|B 1343|556|95.5|A||
-87|jf|FbZw|lohfarbig braun|0|B 1343|658|95|A||
-88|mw|ZwRex|castorfarbig|0|K 134|4315|nb|||
-89|mw|ZwRex|castorfarbig|1|H 188|452|95|||
-90|mw|ZwRex|castorfarbig|1|H 188|654|93.5|||
-91|mw|ZwRex|castorfarbig|1|H 188|657|96|||
-92|lg|LK|rhönfarbig|0|H 188|158|94|A|III|
-93|lg|LK|rhönfarbig|0|H 188|2520|96.5|A||
-94|lg|LK|rhönfarbig|0|H 188|2525|95.5|A||
-95|lg|LK|rhönfarbig|1|H 188|4540|95.5|A||
-96|vf|LK|rhönfarbig|1|H 432|4511|94.5|A|III|30
-97|vf|LK|rhönfarbig|1|H 432|4512|nb|A||30
-98|vf|LK|rhönfarbig|1|H 432|4513|95.5|A||
-99|vf|LK|rhönfarbig|0|H 432|359|95|A||
-100|lg|LK|rhönfarbig|1|H 188|2517|96|B|III|
-101|lg|LK|rhönfarbig|0|H 188|2528|95|B||
-102|lg|LK|rhönfarbig|0|H 188|3543|94.5|B||
-103|lg|LK|rhönfarbig|1|H 188|3544|95.5|B||
-104|lg|LK|rhönfarbig|1|H 188|4541|96|||
-105|lg|LK|japanerfarbig|1|H 188|154|96|A|III|
-106|lg|LK|japanerfarbig|0|H 188|1510|96.5|A||
-107|lg|LK|japanerfarbig|0|H 188|257|96|A||
-108|lg|LK|japanerfarbig|0|H 188|2516|96.5|A||
-109|lg|LK|japanerfarbig|1|H 188|155|94.5|B|III|
-110|lg|LK|japanerfarbig|1|H 188|159|97|B||
-111|lg|LK|japanerfarbig|0|H 188|2514|96|B||
-112|lg|LK|japanerfarbig|0|H 188|2515|94.5|B||`;
 const PREISE0=()=>[
- {id:uid(),name:'Mainspitz-Meister',art:'zg',geschl:'alle',kreis:'alle',anzahl:10},
+ {id:uid(),name:'Schaumeister',art:'zg',geschl:'alle',kreis:'alle',anzahl:10},
  {id:uid(),name:'Vereinsmeister',art:'zg',geschl:'alle',kreis:'mitglied'},
  {id:uid(),name:'Beste Sammlung Jugend',art:'zg',geschl:'alle',kreis:'jugend'},
  {id:uid(),name:'Bester Rammler',art:'tier',geschl:'1,0',kreis:'alle'},
  {id:uid(),name:'Beste Häsin',art:'tier',geschl:'0,1',kreis:'alle'}];
 function sample(){
-  const map={};const zuechter=ZU.map(([k,name,ort,verein,j])=>{const id=uid();map[k]=id;return {id,name,strasse:'',ort,tel:'',verein,jugend:!!j}});
-  const tiere=[],zgKlasse={};
-  TI.split('\n').forEach(line=>{const [c,k,r,f,s,tR,tL,p,zg,kl,vk]=line.split('|');
-    const t={id:uid(),seq:+c,kaefig:+c,zuechterId:map[k],rasse:RK[r],farbe:f,geschlecht:s==='1'?'1,0':'0,1',tR,tL,punkte:p==='nb'?'nb':(p?parseFloat(p):null),zg,preis:'',verkauf:vk?+vk:null,richter:''};
-    tiere.push(t);if(kl)zgKlasse[[t.zuechterId,t.rasse,t.farbe,zg].join('|')]=kl});
-  return {v:2,sample:true,nextSeq:200,
-    schau:{name:'1. Mainspitz-Schau',verein:'Kaninchenzuchtverein H 188 Bischofsheim',vereinNr:'H 188',datum:'',ort:'Bürgerhaus Bischofsheim',leitung:'Lisa Günther',zgGroesse:4,rassen:RASSEN_TXT},
+  return {v:2,sample:false,nextSeq:1,
+    schau:{name:'',verein:'',vereinNr:'',datum:'',ort:'',leitung:'',zgGroesse:4,rassen:RASSEN_TXT},
     grussworte:[],zgPreis:{},
     werbung:[{id:uid(),titel:'Platz für Ihre Anzeige',text:'Hier steht später die Anzeige eines Sponsors. Unter „Schau“ bearbeiten oder entfernen.'}],
-    zuechter,tiere,zgKlasse,preise:PREISE0(),mig3:true,mig4:true,richter:{liste:['Dr. Manfred Andratsch','Manfred Hase'],art:'ab'},
+    zuechter:[],tiere:[],zgKlasse:{},preise:PREISE0(),mig3:true,mig4:true,mig8:true,richter:{liste:[],art:'ab'},
     druck:{art:'einzel',modus:'vordruck',dx:0,dy:0,von:'',bis:''}};
 }
 const REGELN=[
  {k:'zg3check',d:true,t:'ZG III muss beide Geschlechter enthalten',h:'Nur eine Warnung im Reiter Tiere. Gesperrt wird nichts.'},
  {k:'sortKlasse',d:true,t:'Reihenfolge: ZG I, ZG II, ZG III, Herdbuch, Kollektion, dann Einzeltiere',h:'Aus: Sammlungen stehen in Meldereihenfolge.'},
- {k:'umsortieren',d:false,t:'Sammlungen desselben Züchters nicht direkt hintereinander',h:'Im alten Programm Standard. Euer Mainspitz-Katalog nutzt es nicht, deshalb hier aus. Einschalten ändert die Käfignummern beim nächsten Vergeben.'},
+ {k:'umsortieren',d:false,t:'Sammlungen desselben Züchters nicht direkt hintereinander',h:'Im alten Programm Standard, hier zunächst aus. Einschalten ändert die Käfignummern beim nächsten Vergeben.'},
  {k:'altjung',d:true,t:'Alt- und Jungtiere unterscheiden',h:'Beim Melden erscheint ein Feld Alttier/Jungtier. Jungtiere bekommen im Katalog den Zusatz „jt“.'},
  {k:'hbKoll',d:false,t:'Herdbuch Klasse V und Kollektion anbieten',h:'Zusätzliche Klassen beim Melden. Herdbuch V zählt als Sammlung, eine Kollektion (4 Einzeltiere) nicht.'}];
 const REG_DEF=()=>Object.fromEntries(REGELN.map(r=>[r.k,r.d]));
@@ -559,7 +436,7 @@ let S=load()||sample();
 if(!S.regeln)S.regeln=REG_DEF();
 if(!S.mig8){const nz=v=>String(v||'').toUpperCase().replace(/\s+/g,'');S.zuechter.forEach(z=>{if(z.mitglied==null)z.mitglied=nz(z.verein)===nz(S.schau.vereinNr)});
   const rn=v=>String(v||'').replace(/Beste Zuchtgruppe Jugend/g,'Beste Sammlung Jugend');(S.preise||[]).forEach(q=>q.name=rn(q.name));(S.tiere||[]).forEach(t=>t.preis=rn(t.preis));Object.keys(S.zgPreis||{}).forEach(k=>S.zgPreis[k]=rn(S.zgPreis[k]));S.mig8=true;try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
-if(!S.richter)S.richter={liste:['Dr. Manfred Andratsch','Manfred Hase'],art:'ab'};
+if(!S.richter)S.richter={liste:[],art:'ab'};
 if(!S.mig3){S.preise=S.preise.filter(p=>p.kreis!=='gast');S.mig3=true;save()}
 if(!S.mig4){S.preise.forEach(p=>{if(/mainspitz/i.test(p.name)){p.name='Mainspitz-Meister';p.anzahl=10}});S.mig4=true;save()}
 let BF='',RGOPEN=false;
@@ -682,19 +559,19 @@ V.schau=()=>{const s=S.schau;return `<div class="grid2">
  </section>
  <section class="panel stack"><h2>Abteilungen, Rassen und Farben</h2>
   <p class="hint">Zeile mit # beginnt eine Abteilung. Danach eine Rasse pro Zeile, Farbenschläge nach einem Doppelpunkt. Diese Reihenfolge bestimmt Käfignummern, Karten und Katalog.</p>
-  <div class="ok-note"><b>Vollständige Liste aus euren Rassendaten:</b> ${new Set(rassen().map(r=>r.name)).size} Rassen in ${new Set(rassen().map(r=>r.abt)).size} Abteilungen, ${rassen().reduce((a,r)=>a+r.farben.length,0)} Farbenschläge. Typ A und B stehen im Rassennamen.</div>
+  <div class="ok-note"><b>Vollständige Liste aus den Rassendaten:</b> ${new Set(rassen().map(r=>r.name)).size} Rassen in ${new Set(rassen().map(r=>r.abt)).size} Abteilungen, ${rassen().reduce((a,r)=>a+r.farben.length,0)} Farbenschläge. Typ A und B stehen im Rassennamen.</div>
   <textarea id="s_rassen" style="min-height:360px;font-size:13px">${esc(s.rassen)}</textarea>
  </section></div>`};
 V.zuechter=()=>{const counts={};S.tiere.forEach(t=>counts[t.zuechterId]=(counts[t.zuechterId]||0)+1);return `<section class="panel stack"><h2>Aussteller <span class="sub">(${S.zuechter.length})</span></h2>
  <form class="row" id="zForm"><input type="hidden" id="z_id"><label style="flex:2 1 170px">Name<input id="z_name" required></label><label style="flex:2 1 160px">Straße<input id="z_str"></label><label style="flex:2 1 170px">PLZ und Ort<input id="z_ort"></label><label style="flex:1 1 130px">Telefon<input id="z_tel"></label>
- <label style="width:110px">Verein Nr.<input id="z_verein" placeholder="H 188"></label><label class="inline"><input type="checkbox" id="z_mit"> Mitglied</label><label class="inline"><input type="checkbox" id="z_jug"> Jugend</label><button id="z_btn">Hinzufügen</button><button type="button" class="ghost" id="z_cancel" hidden>Abbrechen</button></form>
+ <label style="width:110px">Verein Nr.<input id="z_verein" placeholder="z. B. H 12"></label><label class="inline"><input type="checkbox" id="z_mit"> Mitglied</label><label class="inline"><input type="checkbox" id="z_jug"> Jugend</label><button id="z_btn">Hinzufügen</button><button type="button" class="ghost" id="z_cancel" hidden>Abbrechen</button></form>
  <p class="hint">Straße und Telefon erscheinen im Katalog unter dem Namen. Bitte nur mit Einverständnis der Aussteller eintragen.</p>
  <div class="tbl"><table><thead><tr><th>Name</th><th>PLZ und Ort</th><th>Verein</th><th>Status</th><th class="num">Tiere</th><th></th></tr></thead><tbody>
  ${[...S.zuechter].sort((a,b)=>a.name.localeCompare(b.name)).map(z=>`<tr><td><b>${esc(z.name)}</b>${z.strasse||z.tel?`<div class="hint">${esc([z.strasse,z.tel].filter(Boolean).join(' · '))}</div>`:''}</td><td>${esc(z.ort)||'<span class="pill warn">fehlt</span>'}</td><td>${esc(z.verein)}</td><td><span class="pill ${isGast(z)?'gast':''}">${isGast(z)?'Gast':'Mitglied'}</span> ${z.jugend?'<span class="pill jugend">Jugend</span>':''}</td><td class="num">${counts[z.id]||0}</td><td><button class="ghost small" data-editz="${z.id}">Bearbeiten</button> <button class="ghost small" data-delz="${z.id}">Löschen</button></td></tr>`).join('')||'<tr><td colspan="6" class="hint">Noch keine Aussteller. Lege oben den ersten an, danach kannst du Tiere melden.</td></tr>'}
  </tbody></table></div></section>`};
 V.tiere=()=>{const R=rassen();const G=gruppen();const n=+S.schau.zgGroesse||4;return `<div class="stack">
  <details class="panel stack" id="rgBox" style="gap:12px"><summary style="cursor:pointer"><h2 style="display:inline">Sammlungsregeln</h2> <span class="hint">${(()=>{const n=REGELN.filter(r=>!!S.regeln[r.k]!==r.d).length;return n?n+(n===1?' Regel weicht':' Regeln weichen')+' von der Empfehlung ab':'alle wie empfohlen'})()}</span></summary><div class="stack" style="margin-top:12px">
-  <p class="hint">Voreingestellt nach den Regeln aus „Kaninchen-Schau 4.8“ und euren Katalogdaten. Jede Regel kannst du für eure Schau ändern.</p>
+  <p class="hint">Voreingestellt nach den Regeln aus „Kaninchen-Schau 4.8“. Jede Regel kannst du für eure Schau ändern.</p>
   ${REGELN.map(r=>`<label class="inline" style="align-items:flex-start;gap:12px"><input type="checkbox" data-rg="${r.k}" ${S.regeln[r.k]?'checked':''} style="margin-top:4px"><span><b>${r.t}</b> ${!!S.regeln[r.k]===r.d?'<span class="pill win">Empfehlung</span>':'<span class="pill warn">abweichend</span>'}<br><span class="hint">${r.h}</span></span></label>`).join('')}
   <div><button class="ghost small" id="rgReset">Empfehlungen wiederherstellen</button></div></div></details>
 <section class="panel stack"><h2>Gemeldete Tiere <span class="sub">(${S.tiere.length})</span></h2>
@@ -703,7 +580,7 @@ V.tiere=()=>{const R=rassen();const G=gruppen();const n=+S.schau.zgGroesse||4;re
  <div class="row"><label style="flex:2 1 170px">Aussteller<select id="t_z" required>${[...S.zuechter].sort((a,b)=>a.name.localeCompare(b.name)).map(z=>`<option value="${z.id}">${esc(z.name)}</option>`).join('')}</select></label>
  <label style="flex:3 1 240px">Rasse<select id="t_r" required><option value="">Rasse wählen</option>${(()=>{const seen=new Set();const ab=[...new Set(R.map(r=>r.abt))];return ab.map(a=>{const o=R.filter(r=>r.abt===a&&!seen.has(r.name)).map(r=>{seen.add(r.name);return `<option value="${esc(r.name)}">${esc(r.name)}</option>`}).join('');return o?`<optgroup label="${esc(a)}">${o}</optgroup>`:''}).join('')})()}</select></label>
  <label style="flex:2 1 200px">Farbe<select id="t_f"><option value="">erst Rasse wählen</option></select></label>
- <label style="flex:1 1 120px">Kennz. rechts<input id="t_tr" placeholder="z. B. H 188"></label>${S.regeln.altjung?'<label>Alter<select id="t_aj"><option value="alt">Alttier</option><option value="jung">Jungtier</option></select></label>':''}</div>
+ <label style="flex:1 1 120px">Kennz. rechts<input id="t_tr" placeholder="z. B. H 12"></label>${S.regeln.altjung?'<label>Alter<select id="t_aj"><option value="alt">Alttier</option><option value="jung">Jungtier</option></select></label>':''}</div>
  <div class="row" id="t_single"><label>Geschlecht<select id="t_s"><option value="1,0">1,0 Rammler</option><option value="0,1">0,1 Häsin</option></select></label>
  <label style="flex:1 1 140px">Kennz. links (frei)<input id="t_tl" placeholder="z. B. 4.6.21"></label>
  <label style="width:130px">Sammlung<input id="t_zg" placeholder="leer = Einzeltier"></label><label style="width:100px">Verkauf €<input id="t_vk" inputmode="decimal"></label>
