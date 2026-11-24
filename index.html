@@ -1,106 +1,1026 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Kaninchenzuchtverein H188 Bischofsheim</title>
-        <link rel="icon" type="image/x-icon" href="images/rabbit-128.ico"/>
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-    </head>
-    <body>
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
-            <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="index.html">Kaninchenzuchtverein H188 Bischofsheim</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <i class="fas fa-bars"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="vorstand.html">Der Vorstand</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="zuechter.html">Züchter</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="termine.html">Termine</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="impressum.html">Impressum</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <!-- Page Header-->
-        <header class="masthead" style="background-image: url('images/iris h188 11.jpg')">
-            <div class="container position-relative px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-md-10 col-lg-8 col-xl-7">
-                        <div class="site-heading">
-                            <h1>Kaninchenzuchtverein Bischofsheim</h1>
-                            <span class="subheading">Willkommen auf unserer Internetseite</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-        <!-- Main Content-->
-        <div class="container px-4 px-lg-5">
-            <div class="row gx-4 gx-lg-5 justify-content-center">
-                <div class="col-md-10 col-lg-8 col-xl-7">
-                    <!-- Post preview-->
+<title>Kaninchenschau Manager</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap">
+<style>
+/* Layout: Kopfband mit Schau-Name, Reiter in Ablauf-Reihenfolge, darunter ein Arbeitsbereich pro Schritt. Papier (Karten, Katalog) bleibt in beiden Themes weiß. */
+:root{
+  --bg:#f6f7ef; --surface:#ffffff; --surface-2:#e9f0dc; --ink:#1f2a14; --muted:#5b6a4b;
+  --line:#d5e1c3; --accent:#4f6b2a; --accent-ink:#ffffff; --win:#2b7a46; --win-soft:#e0f2e4;
+  --leaf:#4f6b2a; --leaf-2:#57bb6e; --warn:#b5651d; --warn-soft:#fff1e0; --fehlt:#ffd3a1; --fehlt-line:#d9822b; --nbr:#f7b9b2; --nbr-line:#c0392b;
+  --gast:#e6ecff; --gast-ink:#3346a3; --jug:#fff2c7; --jug-ink:#7a5600;
+  --paper:#ffffff; --paper-ink:#1d1a1c; --paper-soft:#8a7f86; --paper-line:#cfc6cb; --paper-accent:#4f6b2a; --paper-tint:#eef4e4;
+  --font:"Poppins","Segoe UI",system-ui,-apple-system,sans-serif;
+  --ease:cubic-bezier(0.22,1,0.36,1);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#141812; --surface:#1c2119; --surface-2:#2a3324; --ink:#eef3e6; --muted:#a9b99a; --line:#34412b;
+  --accent:#9ccc66; --accent-ink:#15200b; --win:#6fd39b; --win-soft:#1f3a2b; --leaf:#3d5321; --leaf-2:#2f6b3e; --warn:#f0a35b; --warn-soft:#3b2a17; --fehlt:#5a3a17; --fehlt-line:#e3934a; --nbr:#5e1f1c; --nbr-line:#e5675c;
+  --gast:#25305a; --gast-ink:#c4cdff; --jug:#43380f; --jug-ink:#ffe08a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141812; --surface:#1c2119; --surface-2:#2a3324; --ink:#eef3e6; --muted:#a9b99a; --line:#34412b;
+  --accent:#9ccc66; --accent-ink:#15200b; --win:#6fd39b; --win-soft:#1f3a2b; --leaf:#3d5321; --leaf-2:#2f6b3e; --warn:#f0a35b; --warn-soft:#3b2a17; --fehlt:#5a3a17; --fehlt-line:#e3934a; --nbr:#5e1f1c; --nbr-line:#e5675c;
+  --gast:#25305a; --gast-ink:#c4cdff; --jug:#43380f; --jug-ink:#ffe08a; color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font-family:var(--font);font-size:14px;line-height:20px}
+p{text-wrap:pretty;margin:0}
+.wrap{max-width:none;margin:0 auto;padding-left:max(16px,2vw,env(safe-area-inset-left,0px));padding-right:max(16px,2vw,env(safe-area-inset-right,0px));padding-block:24px 48px}
+header.top{position:relative;overflow:hidden;display:flex;flex-wrap:wrap;gap:16px 24px;align-items:flex-end;justify-content:space-between;margin-bottom:16px;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:56px 200px 24px 48px;min-height:184px}
+header.top>*{position:relative;z-index:1}
+header.top .deco{position:absolute;z-index:0;pointer-events:none}
+header.top .d1{left:0;top:0;width:150px;height:auto;fill:var(--leaf)}
+header.top .d3{right:6px;bottom:-20px;width:170px;height:auto;fill:var(--leaf-2)}
+header.top .hase{position:absolute;right:14px;bottom:0;height:172px;width:auto;z-index:0;pointer-events:none}
+header.top h1{font-size:30px;line-height:36px;font-weight:600;letter-spacing:.01em;text-transform:uppercase;color:var(--accent)}
+header.top .sub{text-transform:uppercase;letter-spacing:.14em;font-size:12px;line-height:18px;color:var(--ink)}
+@media (max-width:640px){header.top{padding:48px 24px 20px;min-height:0}header.top .hase,header.top .d3{display:none}header.top .d1{width:130px}header.top h1{font-size:22px;line-height:28px}}
+.pageleaf{position:fixed;z-index:0;pointer-events:none;fill:var(--leaf-2);opacity:.9}
+.pageleaf.l1{left:-30px;bottom:-30px;width:230px}
+.pageleaf.l2{right:-20px;top:-20px;width:200px;fill:var(--leaf)}
+.pageleaf{display:none}
+.wrap{position:relative;z-index:1}
+.brand{display:flex;gap:12px;align-items:center}
+h1,h2,h3{font-weight:600;text-wrap:balance;margin:0}
+h1{font-size:24px;line-height:32px}
+h2{font-size:20px;line-height:28px}
+h3{font-size:16px;line-height:24px;font-weight:500}
+.sub{color:var(--muted);font-size:14px;line-height:20px}
+.tag{display:inline-block;font-size:12px;line-height:16px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;padding:2px 8px;border-radius:9999px;background:var(--warn-soft);color:var(--warn)}
+nav.tabs{display:flex;flex-wrap:wrap;gap:8px;padding:4px 4px 8px;margin-bottom:24px}
+nav.tabs a{flex:none;text-decoration:none;color:var(--muted);font-weight:600;font-size:14px;line-height:20px;padding:8px 16px;border-radius:9999px;display:flex;gap:8px;align-items:center;transition:background-color .3s var(--ease),color .3s var(--ease),transform .3s var(--ease)}
+nav.tabs a:hover{background:var(--surface-2);color:var(--ink)}
+nav.tabs a:active{transform:scale(.98)}
+nav.tabs a .n{font-size:12px;line-height:16px;width:24px;height:24px;border-radius:9999px;display:grid;place-items:center;background:var(--surface-2);color:var(--ink)}
+nav.tabs a[aria-current="page"]{background:var(--accent);color:var(--accent-ink)}
+nav.tabs a[aria-current="page"] .n{background:var(--accent-ink);color:var(--accent)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,label:focus-within>.pill{outline:3px solid var(--accent);outline-offset:2px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px;min-width:0}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:16px}
+.stack{display:flex;flex-direction:column;gap:16px}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end}
+.between{justify-content:space-between;align-items:center}
+label{display:flex;flex-direction:column;gap:4px;font-size:12px;line-height:16px;font-weight:500;color:var(--muted)}
+label.inline{flex-direction:row;align-items:center;gap:8px;color:var(--ink);font-size:14px;line-height:20px}
+input,select,textarea{font:inherit;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:8px;padding:8px 12px;min-width:0;transition:border-color .3s var(--ease)}
+input:hover,select:hover,textarea:hover{border-color:var(--muted)}
+textarea{min-height:96px;resize:vertical;line-height:20px}
+button{font:inherit;font-size:16px;line-height:24px;font-weight:600;border:0;border-radius:9999px;padding:8px 12px;cursor:pointer;background:var(--accent);color:var(--accent-ink);transition:transform .3s var(--ease),opacity .3s var(--ease)}
+button:hover{transform:translateY(-1px);opacity:.92}
+button:active{transform:scale(.98)}
+button.ghost{background:var(--surface-2);color:var(--ink)}
+button.small{padding:4px 12px;font-size:14px;line-height:20px}
+button.icon{padding:4px 8px;font-size:14px;line-height:20px;background:var(--surface-2);color:var(--ink)}
+button:disabled{opacity:.4;cursor:default;transform:none}
+.hint{font-size:14px;line-height:20px;color:var(--muted)}
+.note{background:var(--warn-soft);color:var(--ink);border-radius:12px;padding:12px 16px;font-size:14px;line-height:20px}
+.note b{color:var(--warn)}
+.ok-note{background:var(--win-soft);color:var(--ink);border-radius:12px;padding:12px 16px}
+.ok-note b{color:var(--win)}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+#hbar{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;align-items:center;gap:6px;height:30px;padding:4px 6px;background:var(--surface);border:1px solid var(--line);border-bottom:0;border-radius:12px 12px 0 0;box-shadow:0 -2px 12px rgba(0,0,0,.10);user-select:none;-webkit-user-select:none}
+#hbar button{flex:none;width:28px;height:22px;padding:0;font-size:12px;line-height:22px;border-radius:9999px;background:var(--surface-2);color:var(--ink)}
+#hbar .trk{position:relative;flex:1;height:14px;border-radius:9999px;background:var(--surface-2);cursor:pointer;touch-action:none}
+#hbar .thb{position:absolute;top:0;left:0;height:14px;min-width:32px;border-radius:9999px;background:var(--accent);cursor:grab;touch-action:none}
+#hbar .thb:active{cursor:grabbing}
+.tbl::-webkit-scrollbar{height:14px}
+.tbl::-webkit-scrollbar-track{background:var(--surface-2)}
+.tbl::-webkit-scrollbar-thumb{background:var(--accent);border-radius:9999px;border:3px solid var(--surface-2)}
+.tbl{scrollbar-color:var(--accent) var(--surface-2)}
+#hbar::-webkit-scrollbar{height:14px}
+#hbar::-webkit-scrollbar-track{background:var(--surface-2)}
+#hbar::-webkit-scrollbar-thumb{background:var(--accent);border-radius:9999px;border:3px solid var(--surface-2)}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;font-size:14px;line-height:20px}
+th,td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
+th{font-size:12px;line-height:16px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);background:var(--surface-2)}
+tr:last-child td{border-bottom:0}
+td.num,th.num{text-align:right}
+td input{padding:4px 8px}
+.sex{font-weight:600}
+.pill{display:inline-block;font-size:12px;line-height:16px;font-weight:600;border-radius:9999px;padding:2px 8px;background:var(--surface-2);color:var(--ink)}
+.pill.gast{background:var(--gast);color:var(--gast-ink)}
+.pill.jugend{background:var(--jug);color:var(--jug-ink)}
+.pill.win{background:var(--win-soft);color:var(--win)}
+.pill.warn{background:var(--warn-soft);color:var(--warn)}
+label.filebtn{cursor:pointer;flex-direction:row}
+label.filebtn .pill{font-size:14px;line-height:20px;padding:4px 12px;transition:transform .3s var(--ease)}
+label.filebtn:hover .pill{transform:translateY(-1px)}
+.pos{width:54px;text-align:right;padding:4px 6px;font-variant-numeric:tabular-nums}
+.pos.ok{border-color:var(--win)}
+.pos.bad{border-color:var(--warn);background:var(--warn-soft)}
+th.ph{font-size:11px;line-height:14px;text-align:right;padding:6px 4px;white-space:nowrap}
+.tbl th.kf,.tbl td.kf{position:sticky;left:0;z-index:1;background:var(--surface);width:56px;min-width:56px;max-width:56px;font-size:16px}
+.tbl th.ge2,.tbl td.ge2{position:sticky;left:56px;z-index:1;background:var(--surface);width:52px;min-width:52px;max-width:52px}
+.tbl th.ge2{background:var(--surface-2)}
+#bTbl th.au2,#bTbl td.au2{left:108px}
+.tbl th.au2,.tbl td.au2{position:sticky;left:56px;z-index:1;background:var(--surface);box-shadow:1px 0 0 var(--line)}
+.tbl th.au2{background:var(--surface-2)}
+.tbl th.kf{background:var(--surface-2);font-size:12px}
+.pts{width:80px;text-align:right;font-variant-numeric:tabular-nums}
+.pts.ok{border-color:var(--win)}
+.pts.bad{border-color:var(--warn);background:var(--warn-soft)}
+/* fehlt-Strecke: vom fehlt-Feld bis Gesamt orange */
+.pos.fx,.pts.fx{background:var(--fehlt);border-color:var(--fehlt-line)}
+/* nb-Strecke: vom nb-Feld bis Gesamt rot */
+.pos.nbx,.pts.nbx{background:var(--nbr);border-color:var(--nbr-line)}
+.awards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:12px}
+.award{border:1.5px solid var(--line);border-radius:16px;padding:16px;background:var(--surface);display:flex;flex-direction:column;gap:4px}
+.award .t{font-size:12px;line-height:16px;text-transform:uppercase;letter-spacing:.07em;font-weight:600;color:var(--muted)}
+.award .w{font-size:18px;line-height:28px;font-weight:600}
+.award .d{font-size:14px;line-height:20px;color:var(--muted)}
+.award.has{border-color:var(--win);background:var(--win-soft)}
+.award.has .w{color:var(--win)}
+.award.wide{grid-column:1/-1}
+.award ol{margin:4px 0 0;padding-left:20px;columns:2 300px;column-gap:24px;font-size:14px;line-height:22px}
+.gwlist{display:grid;gap:16px}
+.gw{display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:start}
+.gw .ph{width:120px;aspect-ratio:3/4;border-radius:12px;background:var(--surface-2);object-fit:cover;display:grid;place-items:center;color:var(--muted);font-size:12px;text-align:center;overflow:hidden;max-width:100%}
+.gw .ph img{width:100%;height:100%;object-fit:cover}
+@media (max-width:560px){.gw{grid-template-columns:1fr}}
+.gwnum{font-size:12px;line-height:16px;font-weight:600;color:var(--accent)}
+.sr{position:absolute;left:-9999px}
+.skip{position:absolute;left:-9999px;top:8px;background:var(--accent);color:var(--accent-ink);padding:8px 12px;border-radius:9999px;z-index:20}
+.skip:focus{left:16px}
 
-                    <p>
-                        Der Kaninchenzuchtverein H 188 Bischofsheim wurde am 1.10.1961 in der Gaststätte "Zur Krone" von 12 Zuchtfreunden gegründet.
-                    </p>
+/* ---------- Papier: ZDRK Karten ---------- */
+.cardrow{display:flex;flex-wrap:wrap;gap:16px}
+.cardbox{width:calc(105mm * var(--s));height:calc(148.5mm * var(--s));--s:.62;position:relative;flex:none;max-width:100%}
+.cardbox .pc{transform:scale(var(--s));transform-origin:0 0;box-shadow:0 2px 12px rgba(0,0,0,.18)}
+.pc{position:absolute;left:0;top:0;width:105mm;height:148.5mm;background:var(--paper);color:var(--paper-ink);font-family:var(--font);font-size:9pt;line-height:1.2;overflow:hidden}
+.pc .a{position:absolute;white-space:nowrap}
+.pc .ln{border-bottom:.25mm solid #444;height:5.2mm;text-align:center;font-weight:600;font-size:10pt;padding-top:.6mm}
+.pc .lbl{font-size:9.5pt}
+.pc .ttl{font-size:16.5pt;font-weight:600;text-align:center}
+.pc .sub2{font-size:11pt;text-align:center}
+.pc .schau{font-size:9pt;font-weight:600;text-align:center}
+.pc table{border-collapse:collapse;table-layout:fixed;font-size:8pt;font-variant-numeric:tabular-nums}
+.pc td{border:.25mm solid #444;padding:.6mm 1mm;vertical-align:top;white-space:nowrap;color:var(--paper-ink);line-height:1.2}
+.pc td.c{text-align:center;vertical-align:middle;font-size:9.5pt}
+.pc td.r{text-align:right}
+.pc .sig{text-align:center;font-size:9.5pt;border-bottom:.25mm solid #444;height:5mm}
+.pc .sigl{text-align:center;font-size:6.5pt;color:#555}
+.pc .logozone{position:absolute;left:8mm;top:3mm;width:13mm;height:17mm;border:.3mm dashed #c9c0c5;border-radius:6mm;font-size:6pt;color:#a99fa5;display:grid;place-items:center}
+.pc .testmark{position:absolute;left:0;right:0;top:66mm;text-align:center;font-size:30pt;font-weight:600;color:rgba(79,107,42,.12);transform:rotate(-28deg)}
+.pc .nv{text-align:center;font-size:14pt;font-weight:600;line-height:1.3;background:#fff;padding:3mm 0;border:.4mm solid #444;white-space:normal}
+.pc.frame{}
 
-                    <p>
-                        Die erste Ausstellung fand 1962 im Saal Wiesenecker in Bischofsheim statt. In den letzten beiden Jahrzehnten konnten die Züchter ihre Tiere nur zu Hause halten. Danach beschäftigte sich der Verein mit der Planung einer Zuchtanlage und ging auf die Suche nach einem geeigneten Gelände.
-                        1998 wurde die Zuchtanlage hinter der Peking-Brücke fertiggestellt.
-                    </p>
+/* ---------- Papier: Katalog ---------- */
+.paper{background:var(--paper);color:var(--paper-ink);border-radius:8px;box-shadow:0 2px 16px rgba(0,0,0,.12);max-width:210mm;width:100%;padding:16mm 14mm;font-size:13px;line-height:18px}
+.cat h1,.cat h2,.cat h3{color:var(--paper-ink)}
+.cat .pb{border-top:2px dashed var(--line);margin:32px -14mm;height:0}
+.cat .cover{text-align:center;padding:24px 0 40px;display:flex;flex-direction:column;align-items:center;gap:12px}
+.cat .cover .kick{font-size:12px;line-height:16px;letter-spacing:.2em;text-transform:uppercase;color:var(--paper-accent);font-weight:600}
+.cat .cover h1{font-size:48px;line-height:1;letter-spacing:-.01em}
+.cat .cover .v{font-size:18px;line-height:28px;font-weight:500}
+.cat .cover .d{font-size:16px;line-height:24px;color:var(--paper-soft)}
+.cat .gwp{display:grid;grid-template-columns:1fr 46mm;gap:8mm;align-items:start}
+.cat .gwp h2{font-size:30px;line-height:36px;margin-bottom:12px}
+.cat .gwp p{font-size:14px;line-height:20px;margin:0 0 10px;text-align:justify;hyphens:auto}
+.cat .gwp img{width:46mm;aspect-ratio:3/4;object-fit:cover;border-radius:4mm;max-width:100%}
+.cat .gwp .sg{margin-top:16px;font-weight:600;white-space:pre-line}
+.cat .gwp .fu{color:var(--paper-soft);font-weight:400}
+.cat .gwp.nobild{grid-template-columns:1fr}
+.gwe{border:1px solid var(--line);border-radius:12px;padding:12px;gap:8px}
+.gwe img{width:64px;height:85px;object-fit:cover;border-radius:8px}
+.tbl tr.sgTop>td{border-top:3px solid var(--ink)}
+.tbl tr.sgEnd>td{border-bottom:3px solid var(--ink)}
+#bTbl tr.sgTop>td{border-top-width:2px}
+#bTbl tr.sgEnd>td{border-bottom-width:2px}
+.ez{font-size:11px;font-weight:600;color:var(--muted);letter-spacing:.04em}
+.cat td.prl{width:6mm;text-align:center;font-weight:600}
+.cat td.zg .ez{color:var(--paper-soft);font-size:9.5px}
+.cat .leg{border:1.5px solid var(--paper-line);border-radius:4mm;padding:4mm 6mm;margin:6mm 0;break-inside:avoid;display:grid;grid-template-columns:repeat(auto-fit,minmax(55mm,1fr));gap:3mm 8mm;font-size:11.5px;line-height:16px}
+.cat .leg h2{grid-column:1/-1;font-size:18px;line-height:24px}
+.cat .leg h3{font-size:12px;line-height:16px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--paper-accent);margin-bottom:1mm}
+.cat .leg table{font-size:11.5px;width:auto}
+.cat .leg td{padding:.3mm 3mm .3mm 0;white-space:normal}
+.cat .leg td:first-child{white-space:nowrap}
+.cat .pend{border:1.5px dashed var(--paper-line);border-radius:4mm;padding:8mm;text-align:center;color:var(--paper-soft)}
+.cat .ad{border:1.5px solid var(--paper-line);border-radius:4mm;padding:4mm 6mm;margin:6mm 0;display:flex;flex-direction:column;gap:2px;break-inside:avoid}
+.cat .ad b{font-size:16px;line-height:24px}
+.cat .ad .k{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--paper-soft)}
+.cat h2.abt{font-size:20px;line-height:28px;margin:10mm 0 2mm;padding:2mm 4mm;background:var(--paper-tint);color:var(--paper-accent);border-radius:2mm;break-after:avoid}
+.cat h3.rf{font-size:15px;line-height:20px;font-weight:600;margin:5mm 0 1mm;break-after:avoid}
+.cat table{font-size:11.5px;line-height:15px;font-variant-numeric:tabular-nums;width:100%;border-collapse:collapse}
+.cat th{background:none;color:var(--paper-soft);font-size:9.5px;line-height:12px;padding:1mm 1.5mm;border-bottom:.3mm solid var(--paper-ink);text-transform:uppercase;letter-spacing:.06em;font-weight:600}
+.cat td{padding:.8mm 1.5mm;border-bottom:0;color:var(--paper-ink);white-space:nowrap;vertical-align:top}
+.cat tbody.unit{break-inside:avoid}
+.cat tbody.unit tr:first-child td{border-top:.2mm solid var(--paper-line)}
+.cat td.zg{font-weight:600;width:11mm}
+.cat td.k{width:9mm;text-align:right;font-weight:600}
+.cat td.au{width:40mm;white-space:normal}
+.cat th.ps,.cat td.ps{text-align:right;padding:.8mm .5mm;font-size:10px;width:6.6mm}
+.cat td.pt{text-align:right;width:12mm}
+.cat td.pd{width:8mm;color:var(--paper-soft)}
+.cat td.pr{white-space:normal}
+.cat td.vk{text-align:right;width:14mm}
+.cat tr.sum td{font-weight:600}
+.cat .bad{display:inline-block;font-size:9.5px;line-height:12px;font-weight:600;border-radius:9999px;padding:1px 6px;background:var(--paper-tint);color:var(--paper-accent);margin:0 2px 1px 0}
+.cat .sieger td{border-bottom:.2mm solid var(--paper-line);white-space:normal}
+.mb .kick{font-size:11px;line-height:16px;letter-spacing:.16em;text-transform:uppercase;color:var(--paper-accent);font-weight:600}
+.mb h1{font-size:26px;line-height:32px;margin:2px 0 4px}
+.mb .meta{color:var(--paper-soft);font-size:13px;line-height:18px}
+.mb table td{vertical-align:middle;border-bottom:.2mm solid var(--paper-line);height:10mm}
+.mb th.um,.mb td.um{border-left:.3mm solid var(--paper-ink);width:50mm}
+.mb td.fee{white-space:nowrap;width:22mm}
+.mb .fb{color:var(--paper-soft)}
+.mb tr.zs td{height:7mm;font-size:11px;color:var(--paper-soft);background:var(--paper-tint)}
+.mb table.kosten{width:auto;min-width:120mm;margin:8mm 0 0 auto;font-size:12.5px}
+.mb table.kosten td{height:8mm;border-bottom:.2mm solid var(--paper-line);padding:1mm 3mm;white-space:nowrap}
+.mb table.kosten td.b{text-align:right;font-variant-numeric:tabular-nums;min-width:34mm}
+.mb table.kosten tr.sub td{font-weight:600;border-bottom:.4mm solid var(--paper-ink)}
+.mb table.kosten tr.tot td{font-weight:600;font-size:14px;border-bottom:0}
+.mb .legal{font-size:10.5px;line-height:14px;color:var(--paper-soft);margin:4mm 0 0}
+.ma .msch{font-size:16px;font-weight:600}
+.ma table.kopf td{border:0;border-bottom:.2mm solid var(--paper-line);height:7mm;font-size:13px}
+.ma table.kopf td:first-child{width:22mm;font-weight:600}
+.ma .grid4{display:grid;grid-template-columns:1fr 1fr;gap:3mm 8mm;margin-top:4mm;font-size:13px}
+.ma .bx{display:inline-block;width:3.6mm;height:3.6mm;border:.3mm solid var(--paper-ink);vertical-align:-.6mm}
+.ma .ablk{margin-top:5mm;break-inside:avoid}
+.ma .ah{font-size:13px;margin-bottom:1mm}
+.ma .ablk table td{height:7.5mm;border:.2mm solid var(--paper-line)}
+.ma .ablk table th{border-bottom:.3mm solid var(--paper-ink);font-size:10px}
+.ma .ablk td.c{text-align:center}
+.ma .afoot{display:grid;grid-template-columns:1.2fr 1fr;gap:8mm;margin-top:6mm;align-items:start}
+.mb .foot{margin-top:8mm;display:grid;gap:6mm;font-size:12px;line-height:17px}
+.mb .line{display:inline-block;min-width:35mm;border-bottom:.3mm solid var(--paper-ink);height:5mm}
+.mb .sigs{display:flex;gap:16mm;flex-wrap:wrap;margin-top:12mm;font-size:12px;color:var(--paper-soft)}
+.cat .idx{columns:2;column-gap:10mm;font-size:12px;line-height:17px}
+.cat .idx div{break-inside:avoid}
 
-                    <p>
-                        Jedes Jahr im November findet im Bürgerhaus Bischofsheim die Kaninchenausstellung statt.
-                        Seit nunmehr 1991 sind die Meerschweinchenfreunde ein fester Bestandteil der Ausstellung.
-                    </p>
+#print{display:none}
+@page{size:A4}
+@page card{size:A4;margin:0}
+@page cat{size:A4;margin:12mm 13mm 14mm}
+@media print{
+  body{background:#fff!important;color:#000!important}
+  body>*:not(#print){display:none!important}
+  #print{display:block}
+  #print .sheet{page:card;width:210mm;height:297mm;position:relative;break-after:page;overflow:hidden}
+  #print .sheet .pc{box-shadow:none}
+  #print .cat{page:cat}
+  #print .mbp{break-after:page}
+  #print .paper{box-shadow:none;padding:0;max-width:none;border-radius:0}
+  #print .cat .pb{border:0;margin:0;break-after:page}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
 
-                    <p>
-                        Und das auch in der letzten Zeit aufgekommene "Kanin-Hop" zeigt großen Anklang bei den "großen und kleinen" Besuchern.
-                    </p>
+<svg class="pageleaf l1" viewBox="0 0 180 180" aria-hidden="true"><path d="M0 160C20 150 30 120 50 100C40 80 50 50 75 52C80 30 110 20 125 40C140 30 165 45 155 70C175 80 175 110 150 118C140 140 110 150 90 140C70 160 40 175 0 180Z"/></svg>
+<svg class="pageleaf l2" viewBox="0 0 160 160" aria-hidden="true"><path d="M40 0H160V140C140 150 128 120 132 100C110 112 84 100 92 78C70 76 58 54 72 40C52 30 40 14 40 0Z"/></svg>
+<a class="skip" href="#view">Zum Arbeitsbereich springen</a>
+<div class="wrap" id="app">
+  <header class="top">
+    <svg class="deco d1" viewBox="0 0 200 140" aria-hidden="true"><path d="M0 0H200C190 22 160 30 120 34C80 38 60 52 52 80C46 104 30 124 0 140Z"/></svg>
+    <svg class="deco d3" viewBox="0 0 160 170" aria-hidden="true"><path d="M60 10C95 -6 140 20 138 60C160 70 160 110 140 125C150 150 120 170 95 160C70 175 30 165 28 135C5 125 0 90 18 72C8 40 30 15 60 10Z"/></svg>
+    <img class="hase" alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASoAAAHaCAMAAACAdvQEAAABWGlDQ1BJQ0MgUHJvZmlsZQAAeJx9kLFLw1AQxr9WpaB1EB0cHDKJQ5SSCro4tBVEcQhVweqUvqapkMZHkiIFN/+Bgv+BCs5uFoc6OjgIopPo5uSk4KLleS+JpCJ6j+N+fO+74zggOW5wbvcDqDu+W1zKK5ulLSX1jAS9IAzm8Zyur0r+rj/j/T703k7LWb///43Biukxqp+UGcZdH0ioxPqezyXvE4+5tBRxS7IV8onkcsjngWe9WCC+JlZYzagQvxCr5R7d6uG63WDRDnL7tOlsrMk5lBNYxA48cNgw0IQCHdk//LOBv4BdcjfhUp+FGnzqyZEiJ5jEy3DAMAOVWEOGUpN3ju53F91PjbWDJ2ChI4S4iLWVDnA2Rydrx9rUPDAyBFy1ueEagdRHmaxWgddTYLgEjN5Qz7ZXzWrh9uk8MPAoxNskkDoEui0hPo6E6B5T8wNw6XwBA6diE8HYWhMAAAJYUExURaiekqSglaidlN3Z1OXPsqKtnOLc0V6vcs6znK2MZuHLr8u1meHRtSevXqXJo8i3odTTtiEXGZFvZN7RyN3VyqqObmtmZxeyLe7BeolHINOeY2pjZaKUdwB/DndCHhvbaXSyiWnsbv//AG9tasJtRNG5skw9QXHHjY11XV4uGH59fHx8gv8AAMacb4x5aP//f4ypdsS+wFA1IBbhN67FnwD///9/f3//ALjJmwB0dLTFmgsFAz08QX9/AGhNN3qDfHuIgZNubrXw7P8A/8ikfNq62gAA/2VLOH6AhIA/GoJbOqB+gru+wSglI38AAEU9Nn97gVWqAH///4N+g4V/haqq//9//wAAAO7Vs9W2kfTlz9GmdubLqbWVc+vaxtfEsMmqh+jFl8y6q6qKasiabOO7i6+ZjrilkLOFV5R1VotpS6p5Tv39/GxILg4JCJF6aJmEbItYMNLIxPn06rOopU84K8+VWOe1dHFZSOOpbXRUOJVkOCkZEtvTyruzr8iJTvbhu8eopjEoJhkUFHpjUJKIiN3Am1lDM/Pr46doNa9oSpuUkNyxfDUjGXFna0gpF+WlV8N4TsKblauLibBzO1YzHPnw2lNISOzl2Gw5GuSqhcl4Nnp0de/m1vDo6I5YTG1KRzozMu/q5IlMJGM8Jb2gfIpKSdbFseKbTPDRnVpUVtGEPObazPXz6QD/AKhaTtXGtOfayvDl1NTHs9TGs+bbz458gujayO7l1c/GtUUsJvDl06ZaM6l6aejaye/l1ejayenTtsiLacRqLdjY1O7o2drWzWVcY9DwF0gAAADIdFJOU6Bf3BiiKFgT2ungomUHJWQn/e7nnKCjBP/969VjAvwFGQUBYv8h/xKn7wX6AahkAin/mwVTAQIC4QKpsf8CcEtKFAgBbg4Bnv//uv//bAJ1gAMCX4oDAgD+/v7+/v7+/v7+/v7+/v7+/v7+/gj+/v7+/v7//v7+//7//v7+/f7+/v/+//79/v7+///8//79/v///v7+/v/+L/7///5OE////iz+/v//0f///f9PJwH/r3CwbY8z/7BuT//R///Pj5HP//8QFC/9NIUsDgAArxJJREFUeNrt/YljFNf174sKCYQE2GDAdux4TH6Zh9985nPePeeec++705vfo6urqqu6uruqR7ol1KJpTaChJSEhEgyWSJgNISZAmGzwwGD/bOffemvau6paAiSME3xuygxCYFB/+rvWXnvttdfq2PXXZ5VPx18R/BXVX1H9FdVfUf0V1V9R/fX5K6q1POXXX3/u5eeee/nqX1E9/Nn48j+++eZzGze+tWHDug0bNj738l9RrfRcBUZvvYWQ1q3rwGcd0opJ6xGoyvD8n4jTBmHU2dk5BU8n0frRy49HBZi+7Foq/58A19V/VJwIUeRBWs+/9W8fjapc7kIlrkMVdhGv/+m/R0r/DO57o+I0Nze17OnsWNfV9ShU5fKGda+99NJ34XnppZe+//1167adKv93JrCrV9/cCI+4JuAEpOYGBuAH+Al/8X/9GaD62VTnuq7yQ1EBqO9/HzhdutT406VLl/6EuF4CXBu2dZ367wUXcnpLHDiYHYKaCwZG+/tHRwc6OwcGRudOnFhY+Bnw+tlL399QLv90RVRI6qXvLixcWlxsXKJn8dIlrS82x283p5ffVDYHDrw65ftzvu8HwEme0dH+0Utnz46Pn7104mfACmCd+tHry1GVu34JoKpzAydAUH9qLC4uIqpLf1pYWCBePwZ5fXthXX35uR/9iI2ukxDNIaY5f8Dr7x8ZQU4j8NPc1OLExAsTE7snxhEWvOrvP7/xajsqktSJqg9C9MnPVT+cmkKFESzi9dL/4/9N2vpWcnr+nz4i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">
+    <div class="brand">
+      <div><h1 id="hName">Kaninchenschau</h1><div class="sub" id="hSub"></div></div>
+    </div>
+    <div class="row">
+      <span class="tag" id="sampleTag">Daten aus Katalog</span>
+      <button class="ghost small" id="bExport">Speichern</button>
+      <label class="filebtn"><span class="pill">Aus Datei laden</span><input type="file" id="fImport" accept=".json,application/json" class="sr"></label>
+      <button class="ghost small" id="bNew">Neue Schau vorbereiten</button>
+    </div>
+  </header>
+  <div class="note" id="frameNote" hidden><b>Hinweis:</b> In dieser Vorschau kann der Browser nicht drucken und keine Datei speichern. Für den Schautag die Datei herunterladen und lokal im Browser öffnen.</div>
+  <div id="confirmBar" class="note" hidden style="margin-top:12px"></div>
+  <nav class="tabs" id="tabs" aria-label="Ablauf der Schau" style="margin-top:12px"></nav>
+  <main id="view" tabindex="-1"></main>
+</div>
+<div id="hbar" hidden aria-hidden="true"><button type="button" data-hb="-1" tabindex="-1">◀</button><div class="trk"><div class="thb"></div></div><button type="button" data-hb="1" tabindex="-1">▶</button></div>
+<div id="print"></div>
 
+<script>
+const KEY='kaninchenschau.v2';
+const TABS=[['schau','Schau'],['zuechter','Züchter'],['tiere','Tiere'],['karten','Karten drucken'],['bewertung','Bewertung'],['sieger','Sieger'],['katalog','Katalog']];
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const uid=()=>Math.random().toString(36).slice(2,9);
+const inFrame=(()=>{try{return window.self!==window.top}catch(e){return true}})();
 
+/* ---------- Startdaten: 1. Mainspitz-Schau, übernommen aus dem gedruckten Katalog ---------- */
+const RASSEN_TXT=`# Abteilung I Große Rassen
+Deutsche Riesen (DR): dunkel-/eisengrau, wildgrau, wildfarben, hasengrau, hasenfarbig, schwarz, blau, blaugrau, chinchillafarbig, gelb, weiß
+Deutsche Riesenschecken (DRSch): schwarz-weiß, blau-weiß, havannafarbig-weiß, schwarz (homozygot), blau (homozygot), havannafarbig (homozygot)
+Deutsche Widder (DW): dunkel-/eisengrau, wildgrau, wildfarben, hasengrau, hasenfarbig, blaugrau, gelb, rot, luxfarbig, chinchillafarbig, schwarz, blau, havannafarbig, thüringerfarbig, fehfarbig, dunkel-/eisengrau-weiß, wildgrau-weiß, wildfarben-weiß, hasengrau-weiß, hasenfarbig-weiß, blaugrau-weiß, gelb-weiß, rot-weiß, luxfarbig-weiß, chinchillafarbig-weiß, schwarz-weiß, blau-weiß, havannafarbig-weiß, thüringerfarbig-weiß, fehfarbig-weiß, weiß RA (=Rotaugen), weiß BlA (=Blauaugen)
+# Abteilung II Mittelgroße Rassen
+Meißner Widder (MW): schwarzsilber, blausilber, havannasilber, gelbsilber, graubraunsilber
+Helle Großsilber (HGrS)
+Champagne-Silber (ChS)
+Großchinchilla (GrCh)
+Mecklenburger Schecken (MSch): wildfarben-weiß, dunkel-/eisengrau-weiß, schwarz-weiß, blau-weiß, havannafarbig-weiß, rot-weiß, thüringerfarbig-weiß
+Englische Widder (EW): dunkel-/eisengrau, wildgrau, wildfarben, hasengrau, blaugrau, gelb, chinchillafarbig, schwarz, blau, havannafarbig, thüringerfarbig, dunkel-/eisengrau-weiß, wildgrau-weiß, wildfarben-weiß, hasengrau-weiß, blaugrau-weiß, gelb-weiß, schwarz-weiß, blau-weiß, thüringerfarbig-weiß, weiß RA (=Rotaugen)
+Deutsche Großsilber (DGrS): schwarz, blau, havannafarbig, gelb, graubraun
+Burgunder (BU)
+Blaue Wiener (BlW)
+Blaugraue Wiener (BlgrW)
+Schwarze Wiener (SchwW)
+Weiße Wiener (WW)
+Graue Wiener (GrW): dunkel-/eisengrau, wildgrau, wildfarben, hasengrau
+Weiße Hotot (WH)
+Rote Neuseeländer (RN)
+Weiße Neuseeländer (WN)
+Große Marderkaninchen (GrM): braun, dunkelmarder-braun (homozygot), marderrussen-braun (homozygot), blau, dunkelmarder-blau (homozygot), marderrussen-blau (homozygot)
+Kalifornier (Kal): schwarz-weiß, blau-weiß, havannafarbig-weiß
+Japaner (J)
+Rheinische Schecken (RhSch): dreifarbig, schwarz-gelb (homozygot)
+Thüringer (Th)
+Weißgrannen (WG): schwarz, blau, havannafarbig
+Hasenkaninchen (Ha): rotbraun, weiß RA (=Rotaugen), lohfarbig schwarz
+Alaska (Al)
+Havanna (Hav)
+Sallander (Sall)
+# Abteilung III Kleine Rassen
+Kleinschecken (KlSch): schwarz-weiß, blau-weiß, havannafarbig-weiß, schwarz (homozygot), blau (homozygot), havannafarbig (homozygot)
+Separator (Sep)
+Deutsche Kleinwidder (DKlW): dunkel-/eisengrau, wildgrau, wildfarben, hasengrau, hasenfarbig, blaugrau, gelb, rot, luxfarbig, chinchillafarbig, schwarz, blau, havannafarbig, thüringerfarbig, fehfarbig, rhönfarbig, weißgr.  schw., dunkel-/eisengrau-weiß, wildgrau-weiß, wildfarben-weiß, hasengrau-weiß, hasenfarbig-weiß, blaugrau-weiß, gelb-weiß, rot-weiß, luxfarbig-weiß, chinchillafarbig-weiß, schwarz-weiß, blau-weiß, havannafarbig-weiß, thüringerfarbig-weiß, fehfarbig-weiß, weiß RA (=Rotaugen), weiß BlA (=Blauaugen)
+Kleinchinchilla (KlCh)
+Deilenaar (DL)
+Marburger Feh (MF)
+Blaue Holicer (BlH)
+Sachsengold (SaG)
+Rhönkaninchen (Rh)
+Luxkaninchen (L)
+Perlfeh (Pf)
+Kleine Wiener (KlW): dunkel-/eisengrau, wildfarben, weiss BlA (=Blauaugen)
+Kleinsilber (KlS): schwarz, blau, havannafarbig, gelb, graubraun, hell
+Englische Schecken (Esch): schwarz-weiß, blau-weiß, thüringerfarbig-weiß, dreifarbig, schwarz (homozygot), blau (homozygot), thüringerfarbig (homozygot), schwarz-gelb (homozygot)
+Holländer (H): dunkel-/eisengrau-weiß, wildgrau-weiß, wildfarben-weiß, hasengrau-weiß, schwarz-weiß, blau-weiß, gelb-weiß, chinchillafarbig-weiß, havannafarbig-weiß, fehfarbig-weiß, thüringerfarbig-weiß, japanerfarbig-weiß
+Lohkaninchen (Loh): schwarz, blau, braun, fehfarbig
+Marderkaninchen (M): braun, blau, dunkelmarder-braun (homozygot), dunkelmarder-blau (homozygot), marderrussen-braun (homozygot), marderrussen-blau (homozygot)
+Siamesen (Si): gelb, blau, dunkelsiamesen-gelb (homozygot), dunkelsiamesen-blau (homozygot), siamesenrussen-gelb (homozygot), siamesenrussen-blau (homozygot)
+Schwarzgrannen (SchwGr)
+Russen (R): schwarz-weiß, blau-weiß
+Kastanienbraune Lothringer (KbrLot)
+# Abteilung IV Zwergrassen
+Zwergwidder (ZwW): dunkel-/eisengrau, wildgrau, wildfarben, hasengrau, hasenfarbig, perlfehfarbig, gelb, rot, luxfarbig, chinchillafarbig, schwarz, blau, havannafarbig, thüringerfarbig, sallanderfarbig, fehfarbig, rhönfarbig, japanerfarbig, hototfarbig, lohfarbig schwarz, lohfarbig blau, lohfarbig braun, lohfarbig fehfarbig, weißgrannenfarbig schwarz, weißgrannenfarbig blau, weißgrannenfarbig havannafarbig, schwarzgrannenfarbig, marderfarbig braun, marderfarbig blau, dunkelmarder-braun (homozygot), dunkelmarder-blau (homozygot), marderrussen-braun (homozygot), marderrussen-blau (homozygot), siamesenfarbig gelb, siamesenfarbig blau, dunkelsiamesen-gelb (homozygot), dunkelsiamesen-blau (homozygot), siamesenrussen-gelb (homozygot), siamesenrussen-blau (homozygot), russenfarbig schwarz-weiß, russenfarbig blau-weiß, dunkel-/eisengrau-weiß, wildgrau-weiß, wildfarben-weiß, hasengrau-weiß, hasenfarbig-weiß, perlfehfarbig-weiß, gelb-weiß, rot-weiß, luxfarbig-weiß, chinchillafarbig-weiß, schwarz-weiß, blau-weiß, havannafarbig-weiß, thüringerfarbig-weiß, fehfarbig-weiß, weiß RA (=Rotaugen), weiß BlA (=Blauaugen)
+Zwergschecken (ZwSch): schwarz-weiß, blau-weiß, havannafarbig-weiß, thüringerfarbig-weiß, dreifarbig, schwarz (homozygot), blau (homozygot), havannafarbig (homozygot), thüringerfarbig (homozygot), schwarz-gelb (homozygot)
+Hermelin Typ B (He-B): RA (=Rotaugen), BlA (=Blauaugen)
+Hermelin Typ A (He-A): RA (=Rotaugen), BlA (=Blauaugen)
+Farbenzwerge Typ B (FbZw): dunkel-/eisengrau, wildgrau, wildfarben, hasengrau, schwarz, blau, havannafarbig, gelb, rot, fehfarbig, seperatorfarbig, luxfarbig, chinchillafarbig, deilenaarfarbig, schwarzgrannenfarbig, perlfehfarbig, schwarzsilber, blausilber, havannasilber, gelbsilber, graubraunsilber, hellsilber, thüringerfarbig, sallanderfarbig, marderfarbig braun, marderfarbig blau, dunkelmarder-braun (homozygot), dunkelmarder-blau (homozygot), marderrussen-braun (homozygot), marderrussen-blau (homozygot), siamesenfarbig gelb, siamesenfarbig blau, dunkelsiamesen-gelb (homozygot), dunkelsiamesen-blau (homozygot), siamesenrussen-gelb (homozygot), siamesenrussen-blau (homozygot), weißgrannenfarbig schwarz, weißgrannenfarbig blau, weißgrannenfarbig havannafarbig, hototfarbig, rhönfarbig, japanerfarbig, lohfarbig schwarz, lohfarbig blau, lohfarbig braun, lohfarbig fehfarbig, russenfarbig schwarz-weiß, russenfarbig blau-weiß, holländer eisen-/dunkelgrau-weiß, holländer wildgrau-weiß, holländer wildfarben-weiß, holländer hasengrau-weiß, holländer schwarz-weiß, holländer blau-weiß, holländer thüringerfarbig-weiß, holländer gelb-weiß, holländer havannafarbig-weiß, holländer fehfarbig-weiß, holländer chinchillafarbig-weiß, holländer japanerfarbig-weiß, mantelgescheckt wildfarben-weiß, mantelgescheckt rot-weiß, mantelgescheckt schwarz-weiß, mantelgescheckt blau-weiß, mantelgescheckt havanna-weiß, gepardfarbig schwarz-gelb-weiß
+Farbenzwerge Typ A (FbZw-A): dunkel-/eisengrau, wildgrau, wildfarben, hasengrau, schwarz, blau, havannafarbig, gelb, rot, fehfarbig, seperatorfarbig, luxfarbig, chinchillafarbig, deilenaarfarbig, schwarzgrannenfarbig, perlfehfarbig, schwarzsilber, blausilber, havannasilber, gelbsilber, graubraunsilber, hellsilber, thüringerfarbig, sallanderfarbig, marderfarbig braun, marderfarbig blau, dunkelmarder-braun (homozygot), dunkelmarder-blau (homozygot), marderrussen-braun (homozygot), marderrussen-blau (homozygot), siamesenfarbig gelb, siamesenfarbig blau, dunkelsiamesen-gelb (homozygot), dunkelsiamesen-blau (homozygot), siamesenrussen-gelb (homozygot), siamesenrussen-blau (homozygot), weißgrannenfarbig schwarz, weißgrannenfarbig blau, weißgrannenfarbig havannafarbig, hototfarbig, rhönfarbig, japanerfarbig, lohfarbig schwarz, lohfarbig blau, lohfarbig braun, lohfarbig fehfarbig, russenfarbig schwarz-weiß, russenfarbig blau-weiß, holländer eisen-/dunkelgrau-weiß, holländer wildgrau-weiß, holländer wildfarben-weiß, holländer hasengrau-weiß, holländer schwarz-weiß, holländer blau-weiß, holländer thüringerfarbig-weiß, holländer gelb-weiß, holländer havannafarbig-weiß, holländer fehfarbig-weiß, holländer chinchillafarbig-weiß, holländer japanerfarbig-weiß, mantelgescheckt wildfarben-weiß, mantelgescheckt rot-weiß, mantelgescheckt schwarz-weiß, mantelgescheckt blau-weiß, mantelgescheckt havanna-weiß, gepardfarbig schwarz-gelb-weiß
+# Abteilung V Haarstrukturrassen
+Satin (Sa): elfenbein RA (=Rotaugen), elfenbeinBlA (=Blauaugen), schwarz, blau, havannafarbig, rot, fehfarbig, kalifornierfarbig schwarz-elfenbein, kalifornierfarbig havannafarbig-elfenbein, rhönfarbig, hasenfarbig, thüringerfarbig, sallanderfarbig, chinchillafarbig, siamesenfarbig gelb, dunkelsiamesen-gelb (homozygot), siamesenrussen-gelb (homozygot), castorfarbig, luxfarbig
+Zwergwidder-Satin (ZwWSa): wildfarben, siamesenfarbig gelb, thüringerfarbig, dunkelsiamesen-gelb (homozygot), siamesenrussen-gelb (homozygot)
+Zwerg-Satin Typ B (ZwSa-B): elfenbein BlA, rot, thüringerfarbig, sallanderfarbig
+Zwerg-Satin Typ A (ZwSa-A): elfenbein BlA, rot, thüringerfarbig, sallanderfarbig
+# Abteilung VI Kurzhaarrassen
+Chin-Rexe (ChRex)
+Blau-Rexe (BlRex)
+Weiß-Rexe (WRex): RA (=Rotaugen), BlA (=Blauaugen)
+Dreifarben-Schecken-Rexe (DrfSchRex)
+Dalmatiner-Rexe (DRex): schwarz-weiß, blau-weiß, havannafarbig-weiß, sepiabraun-weiß, dreifarbig
+Gelb-Rexe (GRex)
+Castor-Rexe (CRex)
+Schwarz-Rexe (SchwRex)
+Havanna-Rexe (HavRex)
+Blaugraue-Rexe (BlgrRex)
+Rhön-Rexe (RhRex)
+Japaner-Rexe (JapRex)
+Thüringer -Rexe (ThRex)
+Feh-Rexe (FRex)
+Lux-Rexe (LRex)
+Loh-Rexe (LohRex): schwarz, blau, braun, fehfarbig
+Marder-Rexe (MRex): braun, blau, dunkelmarder-braun (homozygot), dunkelmarder-blau (homozygot), marderrussen-braun (homozygot), marderrussen-blau (homozygot)
+Schwarzgrannen-Rexe (SchwgrRex)
+Russen-Rexe (RRex): schwarz-weiß, blau-weiß
+Klein-Rexe (KlRex): luxfarbig, castorfarbig, dalmatiner schwarz-weiß, dalmatiner dreifarbig, schwarz, blau, gelb, lohfarbig schwarz, gepardfarbig schwarz-gelb, gepardfarbig (homozygot schwarz-gelb), weiß BlA
+Zwerg-Rexe (ZwRex): chinchillafarbig, blau, weiß RA (=Rotaugen), weiß BlA (=Blauaugen), dreifarbenschecken, dalmatiner schwarz-weiß, dalmatiner blau-weiß, dalmatiner havannafarbig-weiß, dalmatiner dreifarbig, gelb, castorfarbig, schwarz, havannafarbig, blaugrau, rhönfarbig, japanerfarbig, fehfarbig, luxfarbig, lohfarbig schwarz, lohfarbig blau, lohfarbig braun, lohfarbig fehfarbig, marderfarbig braun, marderfarbig blau, dunkelmarder-braun (homozygot), dunkelmarder-blau (homozygot), marderrussen-braun (homozygot), marderrussen-blau (homozygot), russenfarbig schwarz-weiß, russenfarbig blau-weiß
+# Abteilung VII Langhaarrassen
+Genter Bartkaninchen (GBK): dunkelgrau, wildfarben
+Angora (A): weiß RA (=Rotaugen), weiß BlA (=Blauaugen), schwarz, blau, havannafarbig, fehfarbig, gelb
+Fuchskaninchen (Fu): schwarz, blau, havannafarbig, fehfarbig, gelb, chinchillafarbig, weiß RA (=Rotaugen), weiß BlA (=Blauaugen)
+Jamora (Jam)
+Löwenköpfchen (LK): rhönfarbig, japanerfarbig, weiß BlA (=Blauaugen)
+Zwergfuchskaninchen Typ B (ZwFu): schwarz, havannafarbig, fehfarbig, gelb, weiß RA (=Rotaugen), weiß BlA (=Blauaugen)
+Zwergfuchskaninchen Typ A (ZwFu): schwarz, havannafarbig, fehfarbig, gelb, weiß RA (=Rotaugen), weiß BlA (=Blauaugen)
+# Neuzüchtungen
+Hasenkaninchen (Ha): schwarz
+Zwerghasenkaninchen (ZwHa): schwarz
+Englische Zwerg-Schecken (EZwSch): schwarz-weiß, thuringerfarbig-weiss, dreifarbig
+Zwerg-Satin (ZwSa): kalifornier schwarz-elfenbein
+Otter Rexe (OtRex): schwarz
+Sallander Rexe (SalRex)
+Klein-Rexe (KlRex): gepardfarbig blau-g.-w., gepardfarbig hav.-g.-w., rhönfarbig, otterfarbig schwarz
+Zwergwidder-Rexe (ZwWRex): weiß BlA (=Blauaugen), blau
+Zwerg-Rexe (ZwRex): sallanderfarbig
+Deutsche Riesen (DR): havannafarbig
+Rhönkaninchen (Rh): rot`;
+const ZU=[['ag','Arkadiusz Geblonski','65474 Bischofsheim','H 96',0],['hb','Harald Betz','55270 Essenheim','P 108',0],['av','Albrecht Veith','55576 Badenheim','P 108',0],
+['im','Iris Müller','','H 188',0],['be','Benjamin Enders','55278 Mommenheim','P 142',0],['gf','Günter Fritz','65479 Raunheim','H 188',0],['af','Alexander Frieß','63840 Hausen','B 1343',0],
+['mb','Manfred Bader','55278 Mommenheim','P 142',0],['vf','Volker Fischer','64580 Radheim','H 432',0],['rl','Roswitha Liebler','63840 Hausen','B 1343',0],['nm','Niklas Müller','65474 Bischofsheim','H 188',1],
+['se','Sophie Enders','55278 Mommenheim','P 142',1],['rf','Richard Forg','65428 Rüsselsheim am Main','H 188',0],['jf','Jannik Frieß','63840 Hausen','B 1343',0],['mw','Melanie Wagner','','H 188',0],['lg','Lisa Günther','65474 Bischofsheim','H 188',0]];
+const RK={DR:'Deutsche Riesen (DR)',Al:'Alaska (Al)',DKlW:'Deutsche Kleinwidder (DKlW)',Rh:'Rhönkaninchen (Rh)',KlS:'Kleinsilber (KlS)',M:'Marderkaninchen (M)',SchwGr:'Schwarzgrannen (SchwGr)',ZwW:'Zwergwidder (ZwW)',FbZw:'Farbenzwerge Typ B (FbZw)',ZwRex:'Zwerg-Rexe (ZwRex)',LK:'Löwenköpfchen (LK)'};
+// Käfig|Züchter|Rasse|Farbe|Geschl(1=1,0 0=0,1)|Kennz. rechts|links|Punkte|Zuchtgruppe|Klasse|Verkauf
+const TI=`1|ag|DR|dunkel-/eisengrau|1|H 96|252|nb|A|III|
+2|ag|DR|dunkel-/eisengrau|1|H 96|155|96|A||
+3|ag|DR|dunkel-/eisengrau|0|H 96|154|94.5|A||
+4|ag|DR|dunkel-/eisengrau|0|H 96|153|95.5|A||
+5|ag|DR|dunkel-/eisengrau|0|H 96|152|95|||
+6|hb|DR|wildfarben|0|P 108|3526|95.5|A|III|
+7|hb|DR|wildfarben|0|P 108|4533|96|A||
+8|hb|DR|wildfarben|1|P 108|3527|94.5|A||
+9|hb|DR|wildfarben|0|P 108|3524|nb|A||
+10|hb|DR|wildfarben|0|P 108|3517|94.5|||
+11|ag|DR|schwarz|1|H 96|151|95.5|||
+12|av|DR|weiß|1|P 108|2523|95|A|III|
+13|av|DR|weiß|1|P 108|2521|96|A||
+14|av|DR|weiß|1|P 108|2519|96.5|A||
+15|av|DR|weiß|1|P 108|2520|95.5|A||
+16|im|Al||1|H 188|451|nb|||30
+17|im|Al||0|H 188|452||||30
+18|be|DKlW|wildfarben|1|P 142|4514|96|A|II|
+19|be|DKlW|wildfarben|0|P 142|4516|96|A||
+20|be|DKlW|wildfarben|1|P 142|4517|96|A||
+21|be|DKlW|wildfarben|1|P 142|4519|96.5|A||
+22|gf|DKlW|wildfarben|1|H 188|4544|96.5|||
+23|gf|DKlW|wildfarben|0|H 188|4549|96.5|||
+24|af|DKlW|wildfarben-weiß|0|B 1343|158|96|A|III|
+25|af|DKlW|wildfarben-weiß|1|B 1343|2514|96|A||30
+26|af|DKlW|wildfarben-weiß|1|B 1343|152|nb|A||
+27|af|DKlW|wildfarben-weiß|0|B 1343|4528|95.5|A||
+28|mb|Rh||1|W 693|455|93|||
+29|mb|KlS|schwarz|1|P 142|1518|96|A|II|
+30|mb|KlS|schwarz|0|P 142|158|96.5|A||
+31|mb|KlS|schwarz|0|P 142|1521|96.5|A||
+32|mb|KlS|schwarz|0|P 142|1520|96.5|A||
+33|mb|KlS|schwarz|0|P 142|3523|96.5|||
+34|gf|KlS|gelb|1|H 188|258|96|A|II|
+35|gf|KlS|gelb|0|H 188|259|96|A||
+36|gf|KlS|gelb|1|H 188|151|95.5|A||
+37|gf|KlS|gelb|1|H 188|152|96|A||
+38|vf|M|braun|0|H 432|458|96|A|III|40
+39|vf|M|braun|1|H 432|453|nb|A||40
+40|vf|M|braun|1|H 432|5510|95|A||40
+41|vf|M|braun|1|H 432|451|96|A||
+42|mb|SchwGr||0|P 142|1510|96.5|A|II|
+43|mb|SchwGr||1|P 142|158|96.5|A||
+44|mb|SchwGr||1|P 142|3546|96|A||
+45|mb|SchwGr||1|P 142|3545|nb|A||
+46|mb|SchwGr||1|P 142|1519|96.5|B|III|
+47|mb|SchwGr||1|P 142|1513|96.5|B||
+48|mb|SchwGr||1|P 142|1522|96.5|B||
+49|mb|SchwGr||0|P 142|155|97|B||
+50|mb|SchwGr||0|P 142|1517|97.5|C|III|
+51|mb|SchwGr||1|P 142|1515|96.5|C||
+52|mb|SchwGr||1|P 142|1516|96.5|C||
+53|mb|SchwGr||1|P 142|153|96|C||
+54|rl|ZwW|marderfarbig blau|1|B 1343|457|96|A|III|20
+55|rl|ZwW|marderfarbig blau|1|B 1343|458|96|A||20
+56|rl|ZwW|marderfarbig blau|0|B 1343|5516|97|A||30
+57|rl|ZwW|marderfarbig blau|0|B 1343|352|96.5|A||
+58|nm|ZwW|weiß BlA (=Blauaugen)|1|HJ 188|256|95.5|A|II|
+59|nm|ZwW|weiß BlA (=Blauaugen)|1|HJ 188|258|96|A||
+60|nm|ZwW|weiß BlA (=Blauaugen)|0|HJ 188|2511|96|A||
+61|nm|ZwW|weiß BlA (=Blauaugen)|0|HJ 188|2512|96.5|A||
+62|se|ZwW|weiß BlA (=Blauaugen)|1|PJ 142|151|95.5|A|III|
+63|se|ZwW|weiß BlA (=Blauaugen)|1|PJ 142|152|96|A||
+64|se|ZwW|weiß BlA (=Blauaugen)|1|PJ 142|153|95|A||
+65|se|ZwW|weiß BlA (=Blauaugen)|1|PJ 142|255|nb|A||
+66|nm|ZwW|weiß BlA (=Blauaugen)|1|HJ 188|5525|95|B|III|
+67|nm|ZwW|weiß BlA (=Blauaugen)|0|HJ 188|5519|96.5|B||
+68|nm|ZwW|weiß BlA (=Blauaugen)|0|HJ 188|5520|97|B||
+69|nm|ZwW|weiß BlA (=Blauaugen)|1|HJ 188|55130|96|B||
+70|nm|ZwW|weiß BlA (=Blauaugen)|1|HJ 188|252|96|C|III|
+71|nm|ZwW|weiß BlA (=Blauaugen)|1|HJ 188|257|96.5|C||
+72|nm|ZwW|weiß BlA (=Blauaugen)|1|HJ 188|3513|95|C||
+73|nm|ZwW|weiß BlA (=Blauaugen)|0|HJ 188|3514|96|C||
+74|nm|ZwW|weiß BlA (=Blauaugen)|1|HJ 188|251|96|||
+75|nm|ZwW|weiß BlA (=Blauaugen)|1|HJ 188|5515|96.5|||
+76|rf|FbZw|blau|1|H 188|452|nb|A|II|
+77|rf|FbZw|blau|1|H 188|653|94|A||
+78|rf|FbZw|blau|1|H 188|655|95|A||
+79|rf|FbZw|blau|0|H 188|657|nb|A||
+80|vf|FbZw|rhönfarbig|1|H 432|251|95.5|A|I|
+81|vf|FbZw|rhönfarbig|0|H 432|457|95.5|A||20
+82|vf|FbZw|rhönfarbig|0|H 432|456|96|A||
+83|vf|FbZw|rhönfarbig|1|H 432|453|95|A||
+84|jf|FbZw|lohfarbig braun|1|B 1343|351|96|A|III|20
+85|jf|FbZw|lohfarbig braun|1|B 1343|555|95|A||30
+86|jf|FbZw|lohfarbig braun|1|B 1343|556|95.5|A||
+87|jf|FbZw|lohfarbig braun|0|B 1343|658|95|A||
+88|mw|ZwRex|castorfarbig|0|K 134|4315|nb|||
+89|mw|ZwRex|castorfarbig|1|H 188|452|95|||
+90|mw|ZwRex|castorfarbig|1|H 188|654|93.5|||
+91|mw|ZwRex|castorfarbig|1|H 188|657|96|||
+92|lg|LK|rhönfarbig|0|H 188|158|94|A|III|
+93|lg|LK|rhönfarbig|0|H 188|2520|96.5|A||
+94|lg|LK|rhönfarbig|0|H 188|2525|95.5|A||
+95|lg|LK|rhönfarbig|1|H 188|4540|95.5|A||
+96|vf|LK|rhönfarbig|1|H 432|4511|94.5|A|III|30
+97|vf|LK|rhönfarbig|1|H 432|4512|nb|A||30
+98|vf|LK|rhönfarbig|1|H 432|4513|95.5|A||
+99|vf|LK|rhönfarbig|0|H 432|359|95|A||
+100|lg|LK|rhönfarbig|1|H 188|2517|96|B|III|
+101|lg|LK|rhönfarbig|0|H 188|2528|95|B||
+102|lg|LK|rhönfarbig|0|H 188|3543|94.5|B||
+103|lg|LK|rhönfarbig|1|H 188|3544|95.5|B||
+104|lg|LK|rhönfarbig|1|H 188|4541|96|||
+105|lg|LK|japanerfarbig|1|H 188|154|96|A|III|
+106|lg|LK|japanerfarbig|0|H 188|1510|96.5|A||
+107|lg|LK|japanerfarbig|0|H 188|257|96|A||
+108|lg|LK|japanerfarbig|0|H 188|2516|96.5|A||
+109|lg|LK|japanerfarbig|1|H 188|155|94.5|B|III|
+110|lg|LK|japanerfarbig|1|H 188|159|97|B||
+111|lg|LK|japanerfarbig|0|H 188|2514|96|B||
+112|lg|LK|japanerfarbig|0|H 188|2515|94.5|B||`;
+const PREISE0=()=>[
+ {id:uid(),name:'Mainspitz-Meister',art:'zg',geschl:'alle',kreis:'alle',anzahl:10},
+ {id:uid(),name:'Vereinsmeister',art:'zg',geschl:'alle',kreis:'mitglied'},
+ {id:uid(),name:'Beste Sammlung Jugend',art:'zg',geschl:'alle',kreis:'jugend'},
+ {id:uid(),name:'Bester Rammler',art:'tier',geschl:'1,0',kreis:'alle'},
+ {id:uid(),name:'Beste Häsin',art:'tier',geschl:'0,1',kreis:'alle'}];
+function sample(){
+  const map={};const zuechter=ZU.map(([k,name,ort,verein,j])=>{const id=uid();map[k]=id;return {id,name,strasse:'',ort,tel:'',verein,jugend:!!j}});
+  const tiere=[],zgKlasse={};
+  TI.split('\n').forEach(line=>{const [c,k,r,f,s,tR,tL,p,zg,kl,vk]=line.split('|');
+    const t={id:uid(),seq:+c,kaefig:+c,zuechterId:map[k],rasse:RK[r],farbe:f,geschlecht:s==='1'?'1,0':'0,1',tR,tL,punkte:p==='nb'?'nb':(p?parseFloat(p):null),zg,preis:'',verkauf:vk?+vk:null,richter:''};
+    tiere.push(t);if(kl)zgKlasse[[t.zuechterId,t.rasse,t.farbe,zg].join('|')]=kl});
+  return {v:2,sample:true,nextSeq:200,
+    schau:{name:'1. Mainspitz-Schau',verein:'Kaninchenzuchtverein H 188 Bischofsheim',vereinNr:'H 188',datum:'',ort:'Bürgerhaus Bischofsheim',leitung:'Lisa Günther',zgGroesse:4,rassen:RASSEN_TXT},
+    grussworte:[],zgPreis:{},
+    werbung:[{id:uid(),titel:'Platz für Ihre Anzeige',text:'Hier steht später die Anzeige eines Sponsors. Unter „Schau“ bearbeiten oder entfernen.'}],
+    zuechter,tiere,zgKlasse,preise:PREISE0(),mig3:true,mig4:true,richter:{liste:['Dr. Manfred Andratsch','Manfred Hase'],art:'ab'},
+    druck:{art:'einzel',modus:'vordruck',dx:0,dy:0,von:'',bis:''}};
+}
+const REGELN=[
+ {k:'zg3check',d:true,t:'ZG III muss beide Geschlechter enthalten',h:'Nur eine Warnung im Reiter Tiere. Gesperrt wird nichts.'},
+ {k:'sortKlasse',d:true,t:'Reihenfolge: ZG I, ZG II, ZG III, Herdbuch, Kollektion, dann Einzeltiere',h:'Aus: Sammlungen stehen in Meldereihenfolge.'},
+ {k:'umsortieren',d:false,t:'Sammlungen desselben Züchters nicht direkt hintereinander',h:'Im alten Programm Standard. Euer Mainspitz-Katalog nutzt es nicht, deshalb hier aus. Einschalten ändert die Käfignummern beim nächsten Vergeben.'},
+ {k:'altjung',d:true,t:'Alt- und Jungtiere unterscheiden',h:'Beim Melden erscheint ein Feld Alttier/Jungtier. Jungtiere bekommen im Katalog den Zusatz „jt“.'},
+ {k:'hbKoll',d:false,t:'Herdbuch Klasse V und Kollektion anbieten',h:'Zusätzliche Klassen beim Melden. Herdbuch V zählt als Sammlung, eine Kollektion (4 Einzeltiere) nicht.'}];
+const REG_DEF=()=>Object.fromEntries(REGELN.map(r=>[r.k,r.d]));
+const KLN={I:'ZG I',II:'ZG II',III:'ZG III',HB5:'HB V',Koll:'Koll.'};
+const KL=()=>[['I','ZG I'],['II','ZG II'],['III','ZG III'],...(S.regeln.hbKoll?[['HB5','Herdbuch Kl. V'],['Koll','Kollektion']]:[])];
+function load(){try{const r=localStorage.getItem(KEY);return r?JSON.parse(r):null}catch(e){return null}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+let S=load()||sample();
+if(!S.regeln)S.regeln=REG_DEF();
+if(!S.mig8){const nz=v=>String(v||'').toUpperCase().replace(/\s+/g,'');S.zuechter.forEach(z=>{if(z.mitglied==null)z.mitglied=nz(z.verein)===nz(S.schau.vereinNr)});
+  const rn=v=>String(v||'').replace(/Beste Zuchtgruppe Jugend/g,'Beste Sammlung Jugend');(S.preise||[]).forEach(q=>q.name=rn(q.name));(S.tiere||[]).forEach(t=>t.preis=rn(t.preis));Object.keys(S.zgPreis||{}).forEach(k=>S.zgPreis[k]=rn(S.zgPreis[k]));S.mig8=true;try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+if(!S.richter)S.richter={liste:['Dr. Manfred Andratsch','Manfred Hase'],art:'ab'};
+if(!S.mig3){S.preise=S.preise.filter(p=>p.kreis!=='gast');S.mig3=true;save()}
+if(!S.mig4){S.preise.forEach(p=>{if(/mainspitz/i.test(p.name)){p.name='Mainspitz-Meister';p.anzahl=10}});S.mig4=true;save()}
+let BF='',RGOPEN=false;
 
+/* ---------- Logik ---------- */
+const zu=id=>S.zuechter.find(z=>z.id===id)||{name:'?',ort:'',verein:'',strasse:'',tel:''};
+const norm=v=>String(v||'').toUpperCase().replace(/\s+/g,'');
+const isGast=z=>!z.mitglied;
+function rassen(){const out=[];let abt='';S.schau.rassen.split('\n').forEach(l=>{l=l.trim();if(!l)return;if(l.startsWith('#')){abt=l.replace(/^#+\s*/,'');return}
+  const i=l.indexOf(':');const name=(i<0?l:l.slice(0,i)).trim();const farben=i<0?[]:l.slice(i+1).split(',').map(x=>x.trim()).filter(Boolean);out.push({abt,name,farben})});return out}
+function rEntry(R,r,f){let i=R.findIndex(x=>x.name===r&&x.farben.includes(f));if(i<0)i=R.findIndex(x=>x.name===r);return i}
+function farbenOf(R,r){return [...new Set(R.filter(x=>x.name===r).flatMap(x=>x.farben))]}
+function cmpT(R){const ri=t=>{const e=rEntry(R,t.rasse,t.farbe);return e<0?1e6:e};const fi=t=>{const e=rEntry(R,t.rasse,t.farbe);const k=e<0?-1:R[e].farben.indexOf(t.farbe);return k<0?999:k};
+  const KR={I:1,II:2,III:3,HB5:4,Koll:5};const kr=t=>S.regeln.sortKlasse?(KR[S.zgKlasse[gk(t)]]||6):0;
+  const gmin={};S.tiere.forEach(t=>{if(t.zg){const k=gk(t);gmin[k]=Math.min(gmin[k]??1e9,t.seq)}});
+  const gpos={};if(S.regeln.umsortieren){const B={};Object.keys(gmin).forEach(k=>{const t=S.tiere.find(x=>x.zg&&gk(x)===k);const b=t.rasse+'|'+t.farbe+'|'+kr(t);(B[b]=B[b]||[]).push({k,z:t.zuechterId})});
+    Object.values(B).forEach(L=>{L.sort((a,b)=>gmin[a.k]-gmin[b.k]);let last=null,i=0;while(L.length){let j=L.findIndex(x=>x.z!==last);if(j<0)j=0;const x=L.splice(j,1)[0];gpos[x.k]=i++;last=x.z}})}
+  const gp=k=>S.regeln.umsortieren?gpos[k]:gmin[k];
+  return (a,b)=>ri(a)-ri(b)||a.rasse.localeCompare(b.rasse)||fi(a)-fi(b)||a.farbe.localeCompare(b.farbe)
+   ||(a.zg?0:1)-(b.zg?0:1)||(a.zg&&b.zg?kr(a)-kr(b):0)||(a.zg&&b.zg?gp(gk(a))-gp(gk(b)):0)||a.seq-b.seq}
+const gk=t=>[t.zuechterId,t.rasse,t.farbe,t.zg].join('|');
+function assignCages(){S.tiere.sort(cmpT(rassen())).forEach((t,i)=>t.kaefig=i+1)}
+const sorted=()=>[...S.tiere].sort((a,b)=>(a.kaefig??1e6+a.seq)-(b.kaefig??1e6+b.seq));
+const hasP=t=>typeof t.punkte==='number';
+const POSMAX=[10,20,20,15,15,15,5];
+const posFull=t=>Array.isArray(t.pos)&&t.pos.length===7&&t.pos.every(v=>typeof v==='number');
+const posV=(t,k)=>{const v=Array.isArray(t.pos)?t.pos[k]:null;return typeof v==='number'?fz(v):(v==='nb'||v==='fehlt'||v==='-')?v:''};
+const zgSumTxt=g=>{const n=+S.schau.zgGroesse||4;if(g.tiere.length===n&&g.tiere.every(hasP))return fz(g.tiere.reduce((a,t)=>a+t.punkte,0));return g.tiere.length===n&&g.tiere.every(erfasst)?'–':''};
+const erfasst=t=>hasP(t)||t.punkte==='nb'||t.punkte==='nbf'||t.punkte==='fehlt';
+const praedT=t=>t.punkte==='nbf'?'nb':praed(t.punkte);
+const fd=n=>String(Math.round(n*10)/10).replace('.',',');
+const bemTeile=t=>posFull(t)?[20-t.pos[1],20-t.pos[2],45-(t.pos[3]+t.pos[4]+t.pos[5])]:null;
+const bemerk=t=>{const b=bemTeile(t);return b?b.map(fd).join('|'):''};
+const bemTot=g=>{const L=g.tiere.map(bemTeile);return L.length&&L.every(Boolean)?[0,1,2].map(i=>fd(L.reduce((a,b)=>a+b[i],0))).join('|'):''};
+function pdHtml(t){let h=praedT(t);if(posFull(t)&&hasP(t)){const s=t.pos.reduce((a,b)=>a+b,0);if(Math.abs(s-t.punkte)>.01)h+=` <span class="pill warn">Summe ${fz(s)}</span>`}return h}
+const fz=n=>n.toFixed(1).replace('.',',');
+const fmtP=t=>t.nurVerkauf?'nur Verkauf':hasP(t)?fz(t.punkte):(t.punkte==='nb'?'ob':t.punkte==='nbf'?'nb':t.punkte==='fehlt'?'fehlt':'');
+function praed(p){if(typeof p!=='number')return '';return p>=97?'v':p>=96.5?'hv':p>=94?'sg':p>=92?'g':p>=90?'b':'nb'}
+function gruppen(){const L=sorted();const m=new Map();let n=0;
+  L.forEach(t=>{if(!t.zg||t.nurVerkauf)return;const k=gk(t);if(!m.has(k))m.set(k,{key:k,nr:++n,zuechterId:t.zuechterId,rasse:t.rasse,farbe:t.farbe,label:t.zg,tiere:[]});m.get(k).tiere.push(t)});
+  const size=+S.schau.zgGroesse||4;
+  m.forEach(g=>{g.klasse=S.zgKlasse[g.key]||'';const m1=g.tiere.filter(t=>t.geschlecht==='1,0').length;g.koll=g.klasse==='Koll';g.zg3warn=!!S.regeln.zg3check&&g.klasse==='III'&&(m1===0||m1===g.tiere.length);g.ok=!g.koll&&g.tiere.length===size&&g.tiere.every(hasP);g.sum=g.ok?g.tiere.reduce((a,t)=>a+t.punkte,0):null;g.max=Math.max(0,...g.tiere.filter(hasP).map(t=>t.punkte))});
+  return [...m.values()]}
+const zgOf=(t,G)=>t.zg&&!t.nurVerkauf?G.find(g=>g.key===gk(t)):null;
+function evalPreis(p,G){const inK=zid=>{const z=zu(zid);return p.kreis==='alle'||(p.kreis==='gast'&&isGast(z))||(p.kreis==='mitglied'&&!isGast(z))||(p.kreis==='jugend'&&z.jugend)};
+  const n=Math.max(1,+p.anzahl||1);const isT=p.art==='tier';let c;
+  if(isT)c=S.tiere.filter(t=>hasP(t)&&!t.nurVerkauf&&inK(t.zuechterId)&&(p.geschl==='alle'||t.geschlecht===p.geschl)).sort((a,b)=>b.punkte-a.punkte||a.kaefig-b.kaefig);
+  else c=G.filter(g=>g.ok&&inK(g.zuechterId)).sort((a,b)=>b.sum-a.sum||b.max-a.max||a.nr-b.nr);
+  const val=x=>isT?x.punkte:x.sum;const tie=!!(c[1]&&val(c[1])===val(c[0]));
+  let tied=null;if(n===1&&tie)tied=c.filter(x=>val(x)===val(c[0]));if(n>1&&c[n]&&val(c[n])===val(c[n-1]))tied=c.filter(x=>val(x)===val(c[n-1]));
+  return {x:c[0],list:c.slice(0,n),n,tied,tie:n===1&&tie,tieCut:n>1&&!!tied,k:isT?'tier':'zg'}}
+const splitP=v=>String(v||'').split(/\s*,\s*/).filter(Boolean);
+function autoPreise(){const names=new Set(S.preise.map(p=>p.name));const {res}=alleSieger();S.zgPreis=S.zgPreis||{};
+  S.tiere.forEach(t=>t.preis=splitP(t.preis).filter(x=>!names.has(x)).join(', '));
+  Object.keys(S.zgPreis).forEach(k=>S.zgPreis[k]=splitP(S.zgPreis[k]).filter(x=>!names.has(x)).join(', '));
+  res.forEach(r=>r.list.forEach(x=>{if(r.k==='tier')x.preis=[...splitP(x.preis),r.p.name].join(', ');else S.zgPreis[x.key]=[...splitP(S.zgPreis[x.key]),r.p.name].join(', ')}))}
+function stechen(){const {res}=alleSieger();return res.filter(r=>r.tied).map(r=>({name:r.p.name,ids:r.tied.flatMap(x=>r.k==='tier'?[x.id]:x.tiere.map(t=>t.id)),
+  label:r.tied.map(x=>r.k==='tier'?`Käfig ${x.kaefig} (${esc(zu(x.zuechterId).name)}, ${fz(x.punkte)})`:`S ${x.nr} (${esc(zu(x.zuechterId).name)}, ${fz(x.sum)})`).join(' oder ')}))}
+function alleSieger(){const G=gruppen();return {G,res:S.preise.map(p=>({p,...evalPreis(p,G)}))}}
+const dStr=()=>S.schau.datum?new Date(S.schau.datum+'T12:00').toLocaleDateString('de-DE',{day:'numeric',month:'long',year:'numeric'}):'';
+const LET='ABCDEFGH';
+function judgedIdx(){const m=new Map();sorted().filter(t=>!t.nurVerkauf&&t.kaefig).forEach((t,i)=>m.set(t.id,i));return m}
+function richterOf(t,M){const R=S.richter;if(t.nurVerkauf)return '';if(R.art==='bereich')return t.richter||'';const n=R.liste.length;if(!n||!t.kaefig)return '';const i=(M||judgedIdx()).get(t.id);return i==null?'':R.liste[i%n]}
+const letterOf=(t,M)=>{const i=S.richter.liste.indexOf(richterOf(t,M));return i<0?'':LET[i]};
+function richterInfo(){const m={};const M=judgedIdx();S.tiere.forEach(t=>{const r=richterOf(t,M);if(r)(m[r]=m[r]||[]).push(t.kaefig)});const e=S.richter.liste.map((n,i)=>m[n]?`<b>${LET[i]}</b> ${esc(n)}: ${m[n].length} Tiere (Käfig ${m[n].sort((a,b)=>a-b).slice(0,4).join(', ')}${m[n].length>4?' …':''})`:`<b>${LET[i]}</b> ${esc(n)}: keine Tiere`);const ohne=S.tiere.filter(t=>!t.nurVerkauf&&!richterOf(t,M)).length;return e.join(' · ')+(ohne?` · <span class="pill warn">${ohne} Tiere ohne Preisrichter</span>`:'')}
+const dShort=()=>S.schau.datum?new Date(S.schau.datum+'T12:00').toLocaleDateString('de-DE'):'';
 
+/* ---------- ZDRK Karten (Maße in mm, nachgemessen an der Bewertungsurkunde) ---------- */
+const fit=(t,n=44)=>t.length>n?`<span style="font-size:${t.length>58?7:8}pt">${esc(t)}</span>`:esc(t);
+const A=(x,y,w,inner,cls='')=>`<div class="a ${cls}" style="left:${x}mm;top:${y}mm;${w?`width:${w}mm;`:''}">${inner}</div>`;
+function schauZeile(){const d=dShort();return esc(`${S.schau.name}${S.schau.ort?' in '+S.schau.ort:''}${d?' am '+d:''}`)}
+function kopf(nr){return A(23.5,8,0,'<span class="lbl">Nr.</span>')+A(29.5,6.6,28,esc(nr),'ln')+A(60.5,6.6,28,'','ln')+A(89.5,8,0,'<span class="lbl">Preis</span>')}
+function fuss(richter){return A(39,129.5,30,esc(S.schau.leitung),'sig')+A(39,135,30,'Ausstellungsleiter','sigl')+A(71,129.5,27,(richter||'').length>20?`<span style="font-size:6.5pt;line-height:2.5mm;white-space:normal;display:block;margin-top:-.6mm">${esc(richter)}</span>`:esc(richter||''),'sig')+A(71,135,27,'Preisrichter','sigl')+A(9,131,0,'<span style="font-size:6pt;color:#999">Stempel</span>')}
+function testDeko(test){return test?'<div class="logozone">Logo</div><div class="testmark">TESTDRUCK</div>':''}
+function einzelKarte(t,test){
+  const P=[['1. Gewicht','(10)',7.6,'kg'],['2. Körperform, Typ und Bau','(20)',11],['3. Fellhaar','(20)',11],['4.','(15)',8],['5.','(15)',8],['6.','(15)',8],['7. Pflegezustand','(5)',7.6]];
+  const rows=P.map((p,i)=>`<tr style="height:${p[2]}mm"><td>${p[0]}${p[3]?`<span style="position:absolute;left:52mm">${p[3]}</span>`:''}<span style="float:right">${p[1]}</span></td><td style="font-size:6.5pt;padding:.6mm .3mm">${i===0?'Punkte':''}</td></tr>`).join('');
+  return `<div class="pc ${test?'frame':''}">${testDeko(test)}${kopf(t.kaefig??'')}
+  ${A(21,14.4,80,'Bewertungsurkunde','ttl')}
+  ${A(7,25,0,'<span class="lbl">Rasse:</span>')}${A(19.5,23.8,77,fit(t.rasse+(t.farbe?' '+t.farbe:'')),'ln')}
+  ${A(7,31.8,0,'<span class="lbl">Geschlecht:</span>')}${A(27,30.6,69.5,t.geschlecht.replace(',','.'),'ln')}
+  ${A(7,38.8,0,'<span class="lbl">Kennzeichnung rechts:</span>')}${A(40,37.6,23,esc(t.tR),'ln')}${A(66,38.8,0,'<span class="lbl">links:</span>')}${A(75,37.6,21.5,esc(t.tL),'ln')}
+  ${A(7,44.6,89.5,schauZeile(),'schau')}
+  <table style="position:absolute;left:7.8mm;top:51.5mm;width:88mm"><colgroup><col><col style="width:9.5mm"></colgroup>${rows}
+  <tr style="height:9mm"><td><b>Gesamturteil</b></td><td></td></tr><tr style="height:9mm"><td colspan="2" style="border-bottom:0">Bemerkungen für Gesundheit und Kennzeichnung</td></tr></table>
+  ${t.nurVerkauf?A(7.8,78,88,'Nur zum Verkauf<br>keine Bewertung','nv'):''}${fuss(richterOf(t))}</div>`}
+function zgKarte(g,test){
+  const rows=[...Array(8)].map((_,i)=>{const t=g.tiere[i];return `<tr style="height:7.9mm"><td class="c">${t?t.kaefig:''}</td><td class="c">${t?t.geschlecht.replace(',','.'):''}</td><td class="c" style="text-align:left;padding-left:2mm">${t?esc(t.tR)+'<span style="display:inline-block;width:6mm"></span>'+esc(t.tL):''}</td><td class="c">${t?fmtP(t):''}</td><td class="c" style="font-size:7.5pt">${t&&S.druck.bem!==false?bemerk(t):''}</td></tr>`}).join('');
+  const richter=[...new Set(g.tiere.map(t=>richterOf(t)).filter(Boolean))].join(' / ');
+  return `<div class="pc ${test?'frame':''}">${testDeko(test)}${kopf(g.nr)}
+  ${A(21,13.6,80,'Bewertungsurkunde','ttl')}${A(21,21.2,80,'für Zuchtgruppen, Familien-','sub2')}${A(21,25.8,80,'Nachzucht-, bzw. Zuchtsammlung','sub2')}
+  ${A(7,33.8,0,'<span class="lbl">Rasse:</span>')}${A(19.5,30.8,77,fit(g.rasse+(g.farbe?' '+g.farbe:'')),'ln')}
+  ${A(7,38.6,89.5,schauZeile(),'schau')}
+  <table style="position:absolute;left:6mm;top:45.5mm;width:88.5mm"><colgroup><col style="width:10.4mm"><col style="width:11.4mm"><col style="width:36.9mm"><col style="width:12.2mm"><col style="width:17.6mm"></colgroup>
+  <tr style="height:7.6mm"><td class="c">Nr.</td><td class="c">Geschl.</td><td class="c">Kennzeichnung</td><td class="c" style="font-size:8pt">Punkte</td><td class="c" style="font-size:8pt">Bemerkung</td></tr>${rows}
+  <tr style="height:8.4mm"><td colspan="3" style="vertical-align:bottom">Gesamtpunktzahl aller Tiere zusammen</td><td class="c" style="font-weight:600">${g.ok?fz(g.sum):''}</td><td class="c" style="font-size:7.5pt">${g.ok&&S.druck.bem!==false?bemTot(g):''}</td></tr></table>
+  ${fuss(richter)}</div>`}
 
+/* ---------- Ansichten ---------- */
+const V={};
+V.schau=()=>{const s=S.schau;return `<div class="grid2">
+ <section class="panel stack"><h2>Angaben zur Schau</h2>
+  <label>Name der Schau<input id="s_name" value="${esc(s.name)}"></label>
+  <label>Ausrichtender Verein<input id="s_verein" value="${esc(s.verein)}"></label>
+  <div class="row"><label style="width:130px">Vereinsnummer<input id="s_vnr" value="${esc(s.vereinNr)}"></label><span class="hint" style="flex:1 1 200px">Ob jemand Mitglied oder Gast ist, legst du bei jedem Züchter mit dem Haken „Mitglied“ fest.</span></div>
+  <div class="row"><label>Datum<input type="date" id="s_datum" value="${esc(s.datum)}"></label><label style="flex:1 1 180px">Ort<input id="s_ort" value="${esc(s.ort)}"></label></div>
+  <div class="row"><label style="flex:1 1 180px">Ausstellungsleitung (steht auf jeder Karte)<input id="s_leit" value="${esc(s.leitung)}"></label><label style="width:130px">Tiere je Sammlung<input type="number" min="2" max="8" id="s_zg" value="${esc(s.zgGroesse)}"></label></div>
+  ${s.datum?'':'<div class="note"><b>Datum fehlt.</b> Es erscheint auf jeder Bewertungskarte und auf dem Katalog.</div>'}
+  <h2 style="margin-top:8px">Werbung im Katalog</h2>
+  <div class="stack">${S.werbung.map(a=>`<div class="row" data-ad="${a.id}"><label style="flex:1 1 160px">Inserent<input data-f="titel" value="${esc(a.titel)}"></label><label style="flex:2 1 220px">Text<input data-f="text" value="${esc(a.text)}"></label><button class="ghost small" data-delad="${a.id}">Entfernen</button></div>`).join('')||'<p class="hint">Noch keine Anzeigen.</p>'}</div>
+  <div><button class="ghost small" id="addAd">Anzeige hinzufügen</button></div>
+  <h2 style="margin-top:8px">Grußworte im Katalog <span class="sub">(freiwillig)</span></h2>
+  <label class="inline"><input type="checkbox" id="gwAn" ${S.grussAn!==false?'checked':''}> Grußworte im Katalog abdrucken</label>
+  <p class="hint">Jedes Grußwort bekommt eine eigene Seite direkt nach der Titelseite. Ohne Einträge oder ohne Haken erscheint nichts im Katalog; die Texte bleiben gespeichert.</p>
+  <div class="stack">${(S.grussworte||[]).map(g=>`<div class="stack gwe" data-gw="${g.id}">
+   <div class="row"><label style="flex:2 1 220px">Überschrift<input data-f="titel" value="${esc(g.titel)}" placeholder="Grußwort"></label><label style="flex:1 1 160px">Name<input data-f="name" value="${esc(g.name)}"></label><label style="flex:1 1 160px">Funktion<input data-f="funktion" value="${esc(g.funktion)}" placeholder="z. B. Bürgermeister"></label></div>
+   <label>Text<textarea data-f="text" style="min-height:140px" placeholder="Absätze mit einer Leerzeile trennen">${esc(g.text)}</textarea></label>
+   <div class="row" style="align-items:center">${g.bild?`<img src="${g.bild}" alt="Foto zum Grußwort">`:''}<button type="button" class="ghost small" data-gwpick="${g.id}">${g.bild?'Foto ersetzen':'Foto hinzufügen (freiwillig)'}</button><input type="file" accept="image/*" data-gwbild="${g.id}" hidden>${g.bild?`<button class="ghost small" data-gwnobild="${g.id}">Foto entfernen</button>`:''}<button class="ghost small" data-delgw="${g.id}">Grußwort entfernen</button></div></div>`).join('')||'<p class="hint">Keine Grußworte.</p>'}</div>
+  <div><button class="ghost small" id="addGw">Grußwort hinzufügen</button></div>
+ </section>
+ <section class="panel stack"><h2>Abteilungen, Rassen und Farben</h2>
+  <p class="hint">Zeile mit # beginnt eine Abteilung. Danach eine Rasse pro Zeile, Farbenschläge nach einem Doppelpunkt. Diese Reihenfolge bestimmt Käfignummern, Karten und Katalog.</p>
+  <div class="ok-note"><b>Vollständige Liste aus euren Rassendaten:</b> ${new Set(rassen().map(r=>r.name)).size} Rassen in ${new Set(rassen().map(r=>r.abt)).size} Abteilungen, ${rassen().reduce((a,r)=>a+r.farben.length,0)} Farbenschläge. Typ A und B stehen im Rassennamen.</div>
+  <textarea id="s_rassen" style="min-height:360px;font-size:13px">${esc(s.rassen)}</textarea>
+ </section></div>`};
+V.zuechter=()=>{const counts={};S.tiere.forEach(t=>counts[t.zuechterId]=(counts[t.zuechterId]||0)+1);return `<section class="panel stack"><h2>Aussteller <span class="sub">(${S.zuechter.length})</span></h2>
+ <form class="row" id="zForm"><input type="hidden" id="z_id"><label style="flex:2 1 170px">Name<input id="z_name" required></label><label style="flex:2 1 160px">Straße<input id="z_str"></label><label style="flex:2 1 170px">PLZ und Ort<input id="z_ort"></label><label style="flex:1 1 130px">Telefon<input id="z_tel"></label>
+ <label style="width:110px">Verein Nr.<input id="z_verein" placeholder="H 188"></label><label class="inline"><input type="checkbox" id="z_mit"> Mitglied</label><label class="inline"><input type="checkbox" id="z_jug"> Jugend</label><button id="z_btn">Hinzufügen</button><button type="button" class="ghost" id="z_cancel" hidden>Abbrechen</button></form>
+ <p class="hint">Straße und Telefon erscheinen im Katalog unter dem Namen. Bitte nur mit Einverständnis der Aussteller eintragen.</p>
+ <div class="tbl"><table><thead><tr><th>Name</th><th>PLZ und Ort</th><th>Verein</th><th>Status</th><th class="num">Tiere</th><th></th></tr></thead><tbody>
+ ${[...S.zuechter].sort((a,b)=>a.name.localeCompare(b.name)).map(z=>`<tr><td><b>${esc(z.name)}</b>${z.strasse||z.tel?`<div class="hint">${esc([z.strasse,z.tel].filter(Boolean).join(' · '))}</div>`:''}</td><td>${esc(z.ort)||'<span class="pill warn">fehlt</span>'}</td><td>${esc(z.verein)}</td><td><span class="pill ${isGast(z)?'gast':''}">${isGast(z)?'Gast':'Mitglied'}</span> ${z.jugend?'<span class="pill jugend">Jugend</span>':''}</td><td class="num">${counts[z.id]||0}</td><td><button class="ghost small" data-editz="${z.id}">Bearbeiten</button> <button class="ghost small" data-delz="${z.id}">Löschen</button></td></tr>`).join('')||'<tr><td colspan="6" class="hint">Noch keine Aussteller. Lege oben den ersten an, danach kannst du Tiere melden.</td></tr>'}
+ </tbody></table></div></section>`};
+V.tiere=()=>{const R=rassen();const G=gruppen();const n=+S.schau.zgGroesse||4;return `<div class="stack">
+ <details class="panel stack" id="rgBox" style="gap:12px"><summary style="cursor:pointer"><h2 style="display:inline">Sammlungsregeln</h2> <span class="hint">${(()=>{const n=REGELN.filter(r=>!!S.regeln[r.k]!==r.d).length;return n?n+(n===1?' Regel weicht':' Regeln weichen')+' von der Empfehlung ab':'alle wie empfohlen'})()}</span></summary><div class="stack" style="margin-top:12px">
+  <p class="hint">Voreingestellt nach den Regeln aus „Kaninchen-Schau 4.8“ und euren Katalogdaten. Jede Regel kannst du für eure Schau ändern.</p>
+  ${REGELN.map(r=>`<label class="inline" style="align-items:flex-start;gap:12px"><input type="checkbox" data-rg="${r.k}" ${S.regeln[r.k]?'checked':''} style="margin-top:4px"><span><b>${r.t}</b> ${!!S.regeln[r.k]===r.d?'<span class="pill win">Empfehlung</span>':'<span class="pill warn">abweichend</span>'}<br><span class="hint">${r.h}</span></span></label>`).join('')}
+  <div><button class="ghost small" id="rgReset">Empfehlungen wiederherstellen</button></div></div></details>
+<section class="panel stack"><h2>Gemeldete Tiere <span class="sub">(${S.tiere.length})</span></h2>
+ <form class="stack" id="tForm" style="gap:12px"><input type="hidden" id="t_id">
+ <div class="row" role="radiogroup" aria-label="Was wird gemeldet"><label class="inline"><input type="radio" name="t_mode" value="einzel" checked> Einzeltier</label><label class="inline"><input type="radio" name="t_mode" value="zg"> Ganze Sammlung (${n} Tiere auf einmal)</label><span class="pill warn" id="t_edit" hidden></span></div>
+ <div class="row"><label style="flex:2 1 170px">Aussteller<select id="t_z" required>${[...S.zuechter].sort((a,b)=>a.name.localeCompare(b.name)).map(z=>`<option value="${z.id}">${esc(z.name)}</option>`).join('')}</select></label>
+ <label style="flex:3 1 240px">Rasse<select id="t_r" required><option value="">Rasse wählen</option>${(()=>{const seen=new Set();const ab=[...new Set(R.map(r=>r.abt))];return ab.map(a=>{const o=R.filter(r=>r.abt===a&&!seen.has(r.name)).map(r=>{seen.add(r.name);return `<option value="${esc(r.name)}">${esc(r.name)}</option>`}).join('');return o?`<optgroup label="${esc(a)}">${o}</optgroup>`:''}).join('')})()}</select></label>
+ <label style="flex:2 1 200px">Farbe<select id="t_f"><option value="">erst Rasse wählen</option></select></label>
+ <label style="flex:1 1 120px">Kennz. rechts<input id="t_tr" placeholder="z. B. H 188"></label>${S.regeln.altjung?'<label>Alter<select id="t_aj"><option value="alt">Alttier</option><option value="jung">Jungtier</option></select></label>':''}</div>
+ <div class="row" id="t_single"><label>Geschlecht<select id="t_s"><option value="1,0">1,0 Rammler</option><option value="0,1">0,1 Häsin</option></select></label>
+ <label style="flex:1 1 140px">Kennz. links (frei)<input id="t_tl" placeholder="z. B. 4.6.21"></label>
+ <label style="width:130px">Sammlung<input id="t_zg" placeholder="leer = Einzeltier"></label><label style="width:100px">Verkauf €<input id="t_vk" inputmode="decimal"></label>
+ <label class="inline"><input type="checkbox" id="t_nv"> Nur Verkauf, keine Bewertung</label></div>
+ <div class="stack" id="t_group" hidden style="gap:8px">${[...Array(n)].map((_,i)=>`<div class="row"><span class="pill" style="align-self:center">Tier ${i+1}</span><label>Geschlecht<select id="g_s${i}"><option value="1,0">1,0</option><option value="0,1" ${i>=n/2?'selected':''}>0,1</option></select></label><label style="flex:1 1 160px">Kennz. links (frei)<input id="g_tl${i}"></label><label style="width:100px">Verkauf €<input id="g_vk${i}" inputmode="decimal"></label></div>`).join('')}
+ <div class="row"><label>Zuchtgruppe<select id="g_kl">${KL().map(([v,l])=>`<option value="${v}" ${v==='III'?'selected':''}>${l}</option>`).join('')}</select></label></div>
+ <p class="hint">Der Sammlungsbuchstabe wird automatisch vergeben. Einzelne Tiere passt du danach über „Bearbeiten“ an.</p></div>
+ <div class="row"><button id="t_btn">Melden</button><button type="button" class="ghost" id="t_cancel" hidden>Abbrechen</button></div></form>
+ <p class="hint">Pflicht sind nur Aussteller und Rasse. Bei Einzeltieren ordnet ein Buchstabe unter Sammlung das Tier einer Sammlung zu (gleicher Aussteller, Rasse und Farbe). Neue Tiere bekommen ihre Käfignummer über den Knopf unten.</p>
+ <div class="row"><button class="ghost" id="bCages">Käfignummern neu vergeben</button><span class="hint">Abteilung, Rasse, Farbe, erst Sammlungen, dann Einzeltiere, jeweils in Meldereihenfolge.</span></div>
+ <div class="tbl"><table><thead><tr><th class="num">Käfig</th><th>S</th><th>Rasse</th><th>Farbe</th><th>Ge</th><th>Kennzeichnung</th><th>Aussteller</th><th class="num">Verkauf</th><th></th></tr></thead><tbody>
+ ${(()=>{const L=sorted();const K=L.map(t=>{const g=zgOf(t,G);return g?g.key:null});return L.map((t,i)=>{const g=zgOf(t,G);const cl=(K[i]?K[i+1]!==K[i]:!!K[i+1])?'sgEnd':'';return `<tr${cl?` class="${cl}"`:''}><td class="num"><b>${t.kaefig??'<span class="pill warn">neu</span>'}</b></td><td>${g?g.nr:'<span class="ez" title="Einzeltier">EZ</span>'}</td><td>${esc(t.rasse)}${t.nurVerkauf?' <span class="pill warn">nur Verkauf</span>':''}</td><td>${esc(t.farbe)}</td><td class="sex">${t.geschlecht}${S.regeln.altjung&&t.alter==='jung'?' <span class="pill">jt</span>':''}</td><td>${esc(t.tR)} ${esc(t.tL)}</td><td>${esc(zu(t.zuechterId).name)}</td><td class="num">${t.verkauf?fz(t.verkauf).replace(',0',',00')+' €':''}</td><td><button class="ghost small" data-editt="${t.id}">Bearbeiten</button> <button class="ghost small" data-delt="${t.id}">Löschen</button></td></tr>`}).join('')})()||'<tr><td colspan="9" class="hint">Noch keine Tiere gemeldet. Wähle oben Aussteller, Rasse und Farbe und klicke auf Melden.</td></tr>'}
+ </tbody></table></div></section>
+ <section class="panel stack"><h2>Sammlungen <span class="sub">(${G.length})</span></h2>
+ <p class="hint">Die Zuchtgruppe (ZG I, II, III) steht im Katalog neben der Sammlungsnummer. Reihenfolge und Prüfungen stellst du oben bei den Sammlungsregeln ein.</p>
+ <div class="tbl"><table><thead><tr><th>S</th><th>Aussteller</th><th>Rasse und Farbe</th><th>Tiere</th><th>Zuchtgruppe</th></tr></thead><tbody>
+ ${G.map(g=>{const m=g.tiere.filter(t=>t.geschlecht==='1,0').length;return `<tr><td><b>${g.nr}</b></td><td>${esc(zu(g.zuechterId).name)}</td><td>${esc(g.rasse)} ${esc(g.farbe)}</td><td>${m},${g.tiere.length-m} ${g.zg3warn?'<span class="pill warn">ZG III ohne beide Geschlechter</span> ':''}${g.tiere.length!==+S.schau.zgGroesse?'<span class="pill warn">'+g.tiere.length+' statt '+S.schau.zgGroesse+'</span>':''}</td>
+ <td><select data-kl="${esc(g.key)}" aria-label="Zuchtgruppe der Sammlung ${g.nr}">${[['','keine'],...KL(),...(g.klasse&&!KL().some(x=>x[0]===g.klasse)?[[g.klasse,KLN[g.klasse]||g.klasse]]:[])].map(([k,l])=>`<option ${g.klasse===k?'selected':''} value="${k}">${l}</option>`).join('')}</select></td></tr>`}).join('')}
+ </tbody></table></div></section></div>`};
+function cardSel(){const d=S.druck;const v=+d.von||1,b=+d.bis||1e9;
+  const E=sorted().filter(t=>t.kaefig&&t.kaefig>=v&&t.kaefig<=b).map(x=>({k:'e',x}));const Z=gruppen().filter(g=>g.tiere[0].kaefig>=v&&g.tiere[0].kaefig<=b).map(x=>({k:'z',x}));
+  return d.art==='zg'?Z:d.art==='alle'?[...E,...Z]:E}
+const karte=(it,test)=>it.k==='z'?zgKarte(it.x,test):einzelKarte(it.x,test);
+function kartenArtSel(d){return `<label>Was drucken<select id="d_a">${[['einzel','Käfigkarten, je Tier eine'],['zg','Sammlungskarten (nach der Bewertung, mit Punkten)'],['alle','Käfig- und Sammlungskarten nacheinander'],['ma','Meldebogen A (leeres Anmeldeformular)'],['mb','Meldebogen B (je Aussteller ein Blatt)']].map(([v,l])=>`<option value="${v}" ${d.art===v?'selected':''}>${l}</option>`).join('')}</select></label>`}
+const eur=n=>(+n||0).toFixed(2).replace('.',',')+' €';
+const FEES=[['feeTier','Meldegeld je Tier',2],['feeSlg','Zuschlag je Sammlung',2],['feeUm','Ummeldung je Tier',1],['feeKat','Katalog (Pflicht)',3]];
+const fee=k=>{const v=S.schau[k];return typeof v==='number'?v:FEES.find(f=>f[0]===k)[2]};
+function mbZuechter(){const ids=new Set(S.tiere.map(t=>t.zuechterId));return [...S.zuechter].filter(z=>ids.has(z.id)).sort((a,b)=>a.name.localeCompare(b.name))}
+function meldebogenB(z){const G=gruppen();const L=sorted().filter(t=>t.zuechterId===z.id);const nS=new Set(L.map(t=>zgOf(t,G)).filter(Boolean)).size;
+  const fT=fee('feeTier'),fS=fee('feeSlg'),fU=fee('feeUm'),fK=fee('feeKat');const mg=L.length*fT,zs=nS*fS,zw=mg+zs+fK;
+  const tr=(x,sl)=>`<tr><td class="k">${x.kaefig??'–'}</td><td class="zg">${sl}</td><td style="white-space:normal">${esc(x.rasse)}<br><span class="fb">${esc(x.farbe)}${x.nurVerkauf?' · nur Verkauf':''}</span></td><td>${x.geschlecht}${S.regeln.altjung&&x.alter==='jung'?' jt':''}</td><td>${esc(x.tR)} ${esc(x.tL)}</td><td class="vk">${x.verkauf?eur(x.verkauf):''}</td><td class="um"></td><td class="fee">${eur(fT)}</td></tr>`;
+  let rows='';for(let i=0;i<L.length;){const t=L[i];const g=zgOf(t,G);
+    if(g){rows+='<tbody class="unit">'+g.tiere.map((x,j)=>tr(x,j===0?`S ${g.nr}${g.klasse?'<br>'+(KLN[g.klasse]||''):''}`:'')).join('')+`<tr class="zs"><td></td><td colspan="6">Zuschlag Sammlung S ${g.nr}</td><td class="fee">${eur(fS)}</td></tr></tbody>`;i+=g.tiere.length}
+    else{rows+=`<tbody class="unit">${tr(t,'')}</tbody>`;i++}}
+  const ln=(w=28)=>`<span class="line" style="min-width:${w}mm"></span>`;
+  return `<div class="mb"><div class="kick">Meldebogen B · Einsetzliste</div><h1>${esc(z.name)}</h1>
+   <div class="meta">${esc([z.strasse,z.ort].filter(Boolean).join(', '))}${z.ort||z.strasse?' · ':''}Verein ${esc(z.verein||'–')} · ${isGast(z)?'Gast':'Mitglied'}${z.jugend?' · Jugend':''}</div>
+   <div class="meta">${esc(S.schau.name)} · ${esc([dStr(),S.schau.ort].filter(Boolean).join(' · '))}</div>
+   <p style="margin:4mm 0 2mm">Bitte setzen Sie Ihre Tiere in die angegebenen Käfige. ${L.length} Tiere${nS?`, davon ${nS} Sammlung${nS>1?'en':''}`:''}. Änderungen tragen Sie rechts unter „Ummeldung“ ein.</p>
+   <table><thead><tr><th style="text-align:right">Käfig</th><th>S</th><th>Rasse und Farbe</th><th>Ge</th><th>Kennzeichnung</th><th style="text-align:right">Verkauf</th><th class="um">Ummeldung (neue Angaben)</th><th style="text-align:right">Meldegeld</th></tr></thead>${rows}</table>
+   <table class="kosten"><tbody>
+    <tr><td>Meldegeld</td><td>${L.length} ${L.length===1?'Tier':'Tiere'} × ${eur(fT)}</td><td class="b">${eur(mg)}</td></tr>
+    <tr><td>Zuschlag Sammlungen</td><td>${nS} × ${eur(fS)}</td><td class="b">${eur(zs)}</td></tr>
+    <tr><td>Katalog (Pflicht)</td><td>1 × ${eur(fK)}</td><td class="b">${eur(fK)}</td></tr>
+    <tr class="sub"><td>Zwischensumme</td><td></td><td class="b">${eur(zw)}</td></tr>
+    <tr><td>Ummeldungen</td><td>${ln(12)} Tiere × ${eur(fU)}</td><td class="b">${ln()} €</td></tr>
+    <tr><td>Ehrenpreisspende (freiwillig)</td><td></td><td class="b">${ln()} €</td></tr>
+    <tr class="tot"><td>Gesamt</td><td>☐ bezahlt</td><td class="b">${ln()} €</td></tr></tbody></table>
+   <p class="legal">Mit Ihrer Unterschrift sind Sie mit dem Preis, wie er sich zusammensetzt, einverstanden und damit, dass Ihre Adresse im Katalog abgedruckt wird und so für die Öffentlichkeit einsehbar ist.</p>
+   <div class="sigs"><div>${ln(60)}<br>Unterschrift Aussteller</div><div>${ln(60)}<br>Ausstellungsleitung</div></div>
+   <p class="legal">Der Aussteller erkennt die zurzeit gültigen Allgemeinen Ausstellungsbestimmungen (AAB) des ZDRK sowie die des ausrichtenden Vereins ausdrücklich an.</p></div>`}
+function mbView(){const d=S.druck;const Z=mbZuechter();const prev=Z.find(z=>z.id===d.mbW)||Z[0];const n=d.mbW?1:Z.length;const ohne=S.tiere.filter(t=>!t.kaefig).length;
+  return `<div class="stack"><section class="panel stack"><h2>Meldebogen B drucken</h2>
+  <div class="row">${kartenArtSel(d)}<label>Aussteller<select id="mb_w"><option value="">alle (${Z.length} Blätter)</option>${Z.map(z=>`<option value="${z.id}" ${d.mbW===z.id?'selected':''}>${esc(z.name)}</option>`).join('')}</select></label>
+  <button id="bPrintCards">Drucken: ${n} ${n===1?'Blatt':'Blätter'}</button></div>
+  <div class="row">${FEES.map(([k,l])=>`<label>${l} €<input data-fee="${k}" id="fee_${k}" inputmode="decimal" value="${eur(fee(k)).replace(' €','')}" style="width:110px"></label>`).join('')}</div>
+  <p class="hint">Ein A4-Blatt je Aussteller mit allen Tieren und ihren Käfignummern. Unten rechnet das Programm Meldegeld, Sammlungszuschläge und Katalog zusammen. Ummeldungen und Ehrenpreisspende werden von Hand eingetragen. Erst drucken, wenn die Käfignummern feststehen.</p>
+  ${ohne?`<div class="note"><b>${ohne} Tiere haben noch keine Käfignummer.</b> Erst im Reiter „Tiere“ auf „Käfignummern neu vergeben“ klicken, sonst fehlen sie auf dem Meldebogen.</div>`:''}
+  </section><section class="stack"><h3>Vorschau${prev?': '+esc(prev.name):''}</h3>${prev?`<article class="paper cat">${meldebogenB(prev)}</article>`:'<p class="hint">Noch keine Tiere gemeldet.</p>'}</section></div>`}
+function meldebogenA(){const sc=S.schau;const ms=sc.meldeschluss?new Date(sc.meldeschluss+'T12:00').toLocaleDateString('de-DE'):'';const aj=S.regeln.altjung;
+  const ln=(w=40)=>`<span class="line" style="min-width:${w}mm"></span>`;const box='<span class="bx"></span>';
+  const blk=n=>`<div class="ablk"><div class="ah"><b>${n}. Sammlung:</b> ${['ZG I','ZG II','ZG III'].map(x=>box+' '+x).join('&emsp;')}&emsp;${box} Einzeltiere</div>
+   <table><thead><tr><th>Geschlecht</th><th>Vereinstäto</th><th>Täto links</th>${aj?'<th>Alt/Jung</th>':''}<th>Verkaufspreis</th><th>nur Verkauf</th></tr></thead><tbody>${'<tr><td></td><td></td><td></td>'.concat(aj?'<td></td>':'','<td></td><td class="c">',box,'</td></tr>').repeat(4)}</tbody></table></div>`;
+  return `<div class="mb ma"><div class="row between" style="align-items:flex-end"><div><div class="kick">${esc(sc.verein)}</div><h1>Meldebogen A</h1></div>${ms?`<div class="msch">Meldeschluss: ${esc(ms)}</div>`:''}</div>
+   <p style="margin:1mm 0 3mm"><b>Jede Rasse und jeder Farbenschlag braucht einen eigenen Meldebogen.</b></p>
+   <table class="kopf"><tbody><tr><td>am</td><td>${esc(dStr())}</td></tr><tr><td>Schau</td><td>${esc(sc.name)}</td></tr><tr><td>Lokal</td><td>${esc(sc.ort)}</td></tr></tbody></table>
+   <div class="grid4"><div>Name ${ln(62)}</div><div>${box} Jugend&emsp;${box} Mitglied</div><div>PLZ, Wohnort ${ln(50)}</div><div>Straße ${ln(55)}</div><div>Verein ${ln(60)}</div><div>Tel. ${ln(60)}</div></div>
+   <div class="grid4" style="margin-top:3mm"><div>Rasse ${ln(64)}</div><div>Farbe ${ln(46)}&emsp;Typ: ${box} A ${box} B</div></div>
+   <p class="legal" style="margin:1mm 0 0;text-align:right">Für Hermelin und Farbenzwerge ist die Angabe des Typs erforderlich.</p>
+   ${[1,2,3].map(blk).join('')}
+   <div class="afoot"><table class="kosten" style="margin:0"><tbody>
+    <tr><td>${ln(14)} Tiere je</td><td>${eur(fee('feeTier'))}</td><td class="b">${ln(26)} €</td></tr>
+    <tr><td>${ln(14)} Sammlungen, Zuschlag je</td><td>${eur(fee('feeSlg'))}</td><td class="b">${ln(26)} €</td></tr>
+    <tr><td>${ln(14)} Katalog/-e je</td><td>${eur(fee('feeKat'))}</td><td class="b">${ln(26)} €</td></tr>
+    <tr><td>Ehrenpreisspende</td><td></td><td class="b">${ln(26)} €</td></tr>
+    <tr class="tot"><td>Gesamt</td><td></td><td class="b">${ln(26)} €</td></tr></tbody></table>
+   <div><p class="legal">Mit Ihrer Unterschrift sind Sie mit dem Preis, wie er sich zusammensetzt, einverstanden und damit, dass Ihre Adresse im Katalog abgedruckt wird und so für die Öffentlichkeit einsehbar ist.</p><div style="margin-top:12mm">${ln(70)}<br><span class="legal">Unterschrift Aussteller</span></div></div></div>
+   <p style="margin-top:4mm"><b>Meldebogen B mit den Käfignummern bekommen Sie beim Einsetzen.</b></p>
+   <p class="legal">Der Aussteller erkennt die zurzeit gültigen Allgemeinen Ausstellungsbestimmungen (AAB) des ZDRK sowie die des ausrichtenden Vereins ausdrücklich an.</p></div>`}
+function maView(){const d=S.druck;const n=Math.max(1,Math.min(100,+d.maN||1));return `<div class="stack"><section class="panel stack"><h2>Meldebogen A drucken</h2>
+  <div class="row">${kartenArtSel(d)}<label>Meldeschluss<input type="date" id="ma_ms" value="${esc(S.schau.meldeschluss||'')}"></label><label>Anzahl Blätter<input type="number" min="1" max="100" id="ma_n" value="${n}" style="width:100px"></label><button id="bPrintCards">Drucken: ${n} ${n===1?'Blatt':'Blätter'}</button></div>
+  <p class="hint">Leeres Anmeldeformular zum Verteilen vor der Schau. Schaudaten, Gebühren und Meldeschluss kommen aus dem Programm. Bis zu 3 Sammlungen oder je 4 Einzeltiere pro Blatt.</p>
+  ${S.schau.meldeschluss?'':'<div class="note"><b>Meldeschluss fehlt.</b> Ohne Datum bleibt die Zeile oben rechts weg.</div>'}
+  </section><section class="stack"><h3>Vorschau</h3><article class="paper cat">${meldebogenA()}</article></section></div>`}
+function printMA(){const n=Math.max(1,Math.min(100,+S.druck.maN||1));document.getElementById('print').innerHTML=Array(n).fill(`<div class="paper cat mbp">${meldebogenA()}</div>`).join('');doPrint()}
+function printMB(){const Z=mbZuechter().filter(z=>!S.druck.mbW||z.id===S.druck.mbW);document.getElementById('print').innerHTML=Z.map(z=>`<div class="paper cat mbp">${meldebogenB(z)}</div>`).join('');doPrint()}
+V.karten=()=>{const d=S.druck;if(d.art==='mb')return mbView();if(d.art==='ma')return maView();const l=cardSel(),test=d.modus==='test';const prev=l.slice(0,2);return `<div class="stack"><section class="panel stack"><h2>Bewertungskarten drucken</h2>
+ <div class="row">${kartenArtSel(d)}
+ <label class="inline" style="align-self:center" title="Abzüge Pos. 2 | Pos. 3 | Pos. 4 bis 6"><input type="checkbox" id="d_bem" ${S.druck.bem!==false?'checked':''}> Bemerkung auf Sammlungskarten drucken</label><label>Papier<select id="d_m"><option value="vordruck" ${!test?'selected':''}>ZDRK Originalvordruck</option><option value="test" ${test?'selected':''}>Normalpapier (Testdruck)</option></select></label>
+ <label>Versatz rechts mm<input type="number" step="0.5" id="d_dx" value="${d.dx}" style="width:100px"></label><label>Versatz unten mm<input type="number" step="0.5" id="d_dy" value="${d.dy}" style="width:100px"></label>
+ <label>Käfig von<input type="number" id="d_v" value="${esc(d.von)}" style="width:90px"></label><label>bis<input type="number" id="d_b" value="${esc(d.bis)}" style="width:90px"></label>
+ <button id="bPrintCards">Drucken: ${l.length} Karten, ${Math.ceil(l.length/4)} Seiten</button></div>
+ <p class="hint">Käfigkarten gibt es für jedes Tier, auch für jedes Tier einer Sammlung (${S.tiere.filter(t=>t.kaefig).length} Karten). Vorgedruckt werden nur Nr., Rasse, Geschlecht, Kennzeichnung, Schau, Ausstellungsleiter und Preisrichter. Gewicht, Positionen, Punkte, Gesamturteil, Preis und Bemerkungen bleiben leer für die Preisrichter.</p>
+ <div class="note"><b>So funktioniert der Vordruck:</b> Das ZDRK-Blatt hat nur Logo und Wasserzeichen. Das Programm druckt alle Linien und Texte selbst, vier Karten je A4. Erst einen Testdruck auf Normalpapier machen, auf das ZDRK-Blatt legen und gegen das Licht halten. Abweichung mit dem Versatz korrigieren.</div>
+ <div class="panel stack" style="padding:16px;background:var(--bg)"><h3>Preisrichter</h3>
+ <div class="row"><label style="flex:2 1 240px">Namen, einer pro Zeile (Reihenfolge = A, B, …)<textarea id="r_l" style="min-height:64px">${esc(S.richter.liste.join('\n'))}</textarea></label>
+ <label>Verteilung<select id="r_a"><option value="ab" ${S.richter.art==='ab'?'selected':''}>Abwechselnd (${LET.slice(0,Math.max(1,S.richter.liste.length)).split('').join('/')})</option><option value="bereich" ${S.richter.art==='bereich'?'selected':''}>Käfigbereiche von bis</option></select></label></div>
+ ${S.richter.art==='bereich'?`<div class="row"><label>Preisrichter<select id="pr_n">${S.richter.liste.map(n=>`<option>${esc(n)}</option>`).join('')}</select></label><label>Käfig von<input type="number" id="pr_v" style="width:90px"></label><label>bis<input type="number" id="pr_b" style="width:90px"></label><button class="ghost" id="bRichter">Zuweisen</button></div>`:'<p class="hint">Käfig 1 bekommt A, Käfig 2 B, Käfig 3 wieder A und so weiter. Tiere nur zum Verkauf werden übersprungen. Ändern sich die Käfignummern, wandert die Zuteilung automatisch mit.</p>'}
+ <p class="hint">${richterInfo()}</p></div>
+ </section>
+ <section class="stack"><h3>Vorschau</h3><div class="cardrow">${prev.map(it=>`<div class="cardbox">${karte(it,test)}</div>`).join('')||'<p class="hint">Keine Karten im gewählten Bereich.</p>'}</div></section></div>`};
+V.bewertung=()=>{const G=gruppen();const J=S.tiere.filter(t=>!t.nurVerkauf);const done=J.filter(erfasst).length;const st=stechen();const tid=new Set(st.flatMap(x=>x.ids));const M=judgedIdx();
+ return `<section class="panel stack"><div class="row between"><h2>Bewertung erfassen</h2><div class="row"><button class="small" id="bAuto">Preise automatisch eintragen</button><button class="ghost small" id="bClearP">Alle Bewertungen leeren</button></div></div>
+ <p class="hint">Die Punkte der Positionen 1 bis 7 von der Karte abtippen, Enter springt weiter. Gesamt und Prädikat rechnet das Programm. Ohne Positionen kannst du nur die Gesamtpunkte eintragen, „ob“ für ohne Bewertung. „nb“ (nicht befriedigend) kannst du in jede Position tippen: Die folgenden Positionen bekommen „-“, Gesamt wird „nb“. Genauso „fehlt“ für ein Tier, das nicht da ist. Komma oder Punkt geht beides.</p>
+ <p class="hint">Preise: Der Knopf trägt die Preise aus dem Reiter „Sieger“ in die Felder ein. Danach kannst du jedes Feld ändern oder einen Preis auf ein anderes Tier umtragen. Mehrere Preise mit Komma trennen. Im Katalog steht genau, was hier steht.</p>
+ ${st.length?`<div class="note"><b>Stechen nötig:</b> ${st.map(x=>`${esc(x.name)}: ${x.label}`).join(' · ')}. Das Programm trägt vorläufig einen ein. Nach dem Stechen den Preis hier umtragen.</div>`:''}
+ <div class="row"><label>Liste<select id="b_f"><option value="">Alle Tiere</option>${S.richter.liste.map((n,i)=>`<option value="${esc(n)}" ${BF===n?'selected':''}>Nur ${LET[i]}: ${esc(n)}</option>`).join('')}</select></label><span class="pill win" id="progress">${done} von ${J.length} erfasst</span></div>
+ <div class="tbl" id="bTbl"><table><thead><tr><th>PR</th><th>S</th><th>Rasse und Farbe</th><th class="num kf">Käfig</th><th class="ge2">Ge</th><th class="au2">Kennzeichnung</th>${['1 Gew.<br>10','2 Körper<br>20','3 Fell<br>20','4<br>15','5<br>15','6<br>15','7 Pflege<br>5'].map(x=>`<th class="ph">${x}</th>`).join('')}<th class="num">Gesamt</th><th>Präd.</th><th class="num">Bewertung Sammlung</th><th>Preis Tier</th><th>Preis Sammlung</th></tr></thead><tbody>
+ ${(()=>{const BL=sorted().filter(t=>!BF||richterOf(t,M)===BF);const K=BL.map(t=>{const g=zgOf(t,G);return g?g.key:null});return BL.map((t,i)=>{const g=zgOf(t,G);const first=g&&g.tiere[0]===t;const L=letterOf(t,M);const cl=(K[i]?K[i+1]!==K[i]:!!K[i+1])?'sgEnd':'';return `<tr${cl?` class="${cl}"`:''}><td>${L?`<span class="pill">${L}</span>`:''}</td><td>${g?g.nr:'<span class="ez" title="Einzeltier">EZ</span>'}</td><td>${esc(t.rasse)} ${esc(t.farbe)}</td><td class="num kf"><b>${t.kaefig??'–'}</b></td><td class="sex ge2">${t.geschlecht}</td><td class="au2"><b>${esc(t.tR)}</b>${t.tL?' · '+esc(t.tL):''}${tid.has(t.id)?' <span class="pill warn">Stechen</span>':''}</td>
+ ${t.nurVerkauf?'<td colspan="8"><span class="pill warn">nur Verkauf</span></td>':POSMAX.map((mx,k)=>`<td class="num" style="padding:4px 2px"><input class="pos ${posV(t,k)?'ok':''}" data-pos="${t.id}" data-i="${k}" id="ps_${t.id}_${k}" inputmode="decimal" value="${posV(t,k)}" aria-label="Position ${k+1} Käfig ${t.kaefig}"></td>`).join('')+`<td class="num"><input class="pts ${erfasst(t)?'ok':''}" data-p="${t.id}" id="p_${t.id}" inputmode="decimal" value="${fmtP(t)}" aria-label="Gesamtpunkte Käfig ${t.kaefig}"></td>`}<td data-pd="${t.id}">${pdHtml(t)}</td><td class="num">${g&&g.tiere[g.tiere.length-1]===t?`<b data-zs="${esc(g.key)}">${zgSumTxt(g)}</b>`:''}</td>
+ <td><input data-pr="${t.id}" id="pr_${t.id}" value="${esc(t.preis)}" style="width:113px" aria-label="Preis Käfig ${t.kaefig}" placeholder="z. B. Bester Rammler"></td>
+ <td>${first?`<input data-zp="${esc(g.key)}" id="zp_${g.nr}" value="${esc((S.zgPreis||{})[g.key]||'')}" style="width:127px" aria-label="Preis Sammlung ${g.nr}" placeholder="Preis für S ${g.nr}">`:''}</td></tr>`}).join('')})()}
+ </tbody></table></div></section>`};
+const winDesc=r=>{if(r.n>1){if(!r.list.length)return '<div class="w">noch offen</div><div class="d">Keine gültige Wertung</div>';return `<div class="d">${r.list.length} von ${r.n} Titeln vergeben</div><ol class="ml">${r.list.map(x=>`<li><b>${esc(zu(x.zuechterId).name)}</b> · ${r.k==='tier'?`Käfig ${x.kaefig} · ${fz(x.punkte)}`:`S ${x.nr} · ${esc(x.rasse)} ${esc(x.farbe)} · ${fz(x.sum)}`}</li>`).join('')}</ol>${r.tieCut?`<div class="d"><span class="pill warn">Punktgleich mit Platz ${r.n+1}: Stechen durch die Preisrichter</span></div>`:''}`}if(!r.x)return '<div class="w">noch offen</div><div class="d">Keine gültige Wertung</div>';const z=zu(r.x.zuechterId);
+  const tie=r.tie?'<div class="d"><span class="pill warn">Punktgleich: Stechen durch die Preisrichter</span></div>':'';
+  if(r.k==='tier')return `<div class="w">${esc(z.name)}</div><div class="d">Käfig ${r.x.kaefig} · ${esc(r.x.rasse)} ${esc(r.x.farbe)} ${r.x.geschlecht} · ${fz(r.x.punkte)} ${praed(r.x.punkte)}</div>${tie}`;
+  return `<div class="w">${esc(z.name)}</div><div class="d">S ${r.x.nr} · ${esc(r.x.rasse)} ${esc(r.x.farbe)} · ${fz(r.x.sum)} Punkte</div>${tie}`};
+V.sieger=()=>{const {G,res}=alleSieger();const R=[...new Set(sorted().map(t=>t.rasse))];const bad=G.filter(g=>!g.ok&&!g.koll);
+ const bt=(r,s)=>{const c=S.tiere.filter(t=>t.rasse===r&&t.geschlecht===s&&hasP(t)).sort((a,b)=>b.punkte-a.punkte||a.kaefig-b.kaefig)[0];return c?`${esc(zu(c.zuechterId).name)} · K ${c.kaefig} · ${fz(c.punkte)}`:'–'};
+ const bg=r=>{const c=G.filter(g=>g.ok&&g.rasse===r).sort((a,b)=>b.sum-a.sum||b.max-a.max)[0];return c?`${esc(zu(c.zuechterId).name)} · S ${c.nr} · ${fz(c.sum)}`:'–'};
+ return `<div class="stack"><section class="stack"><div class="row between"><h2>Vorschlag des Programms</h2><button class="small" id="bAuto2">In Preisfelder eintragen</button></div><p class="hint">In den Katalog kommt, was im Reiter „Bewertung“ in den Preisfeldern steht. Dort kannst du jeden Preis ändern oder umtragen.</p><div class="awards">${res.map(r=>`<div class="award ${r.x?'has':''}${r.n>1?' wide':''}"><div class="t">${esc(r.p.name)}</div>${winDesc(r)}</div>`).join('')}</div></section>
+ <section class="panel stack"><h2>Preise festlegen</h2><p class="hint">Jeder Preis wird automatisch vergeben. „Anzahl“ ist, wie oft der Titel höchstens vergeben wird, an die Punktbesten; ein Züchter kann mehrfach gewinnen. „Mitglied“ heißt: Haken „Mitglied“ im Reiter Züchter gesetzt. Ein Züchter kann in mehreren Vereinen sein.</p>
+ <div class="tbl"><table><thead><tr><th>Name des Preises</th><th>Für</th><th>Geschlecht</th><th>Wer darf gewinnen</th><th>Anzahl</th><th></th></tr></thead><tbody>
+ ${S.preise.map(p=>`<tr data-pz="${p.id}"><td><input data-f="name" value="${esc(p.name)}" style="width:280px" aria-label="Name des Preises"></td>
+ <td><select data-f="art"><option value="zg" ${p.art==='zg'?'selected':''}>Sammlung</option><option value="tier" ${p.art==='tier'?'selected':''}>Einzeltier</option></select></td>
+ <td><select data-f="geschl" ${p.art==='zg'?'disabled':''}><option value="alle">alle</option><option ${p.geschl==='1,0'?'selected':''} value="1,0">1,0</option><option ${p.geschl==='0,1'?'selected':''} value="0,1">0,1</option></select></td>
+ <td><select data-f="kreis">${[['alle','alle Aussteller'],['mitglied','nur Mitglieder'],['gast','nur Gäste'],['jugend','nur Jugend']].map(([v,l])=>`<option value="${v}" ${p.kreis===v?'selected':''}>${l}</option>`).join('')}</select></td>
+ <td><input data-f="anzahl" type="number" min="1" max="50" value="${p.anzahl||1}" style="width:72px" aria-label="Anzahl Titel"></td><td><button class="ghost small" data-delpz="${p.id}">Entfernen</button></td></tr>`).join('')}</tbody></table></div>
+ <div><button class="ghost small" id="addPz">Preis hinzufügen</button></div>
+ <p class="hint">Rechenweg: Einzeltier nach Punkten. Sammlung nur mit ${S.schau.zgGroesse} bewerteten Tieren (ein ob in der Gruppe = kein Titel), Summe der Punkte. Bei Punktgleichheit entscheiden die Preisrichter im Stechen; das Programm trägt vorläufig die niedrigere Käfignummer bzw. die Gruppe mit dem besseren Einzeltier ein. Prädikat: ab 97 v, 96,5 hv, ab 94 sg, ab 92 g, ab 90 b, unter 90 nb (nicht befriedigend).</p></section>
+ <section class="panel stack"><h2>Je Rasse</h2><div class="tbl"><table><thead><tr><th>Rasse</th><th>Bester 1,0</th><th>Beste 0,1</th><th>Beste Sammlung</th></tr></thead><tbody>
+ ${R.map(r=>`<tr><td><b>${esc(r)}</b></td><td>${bt(r,'1,0')}</td><td>${bt(r,'0,1')}</td><td>${bg(r)}</td></tr>`).join('')}</tbody></table></div>
+ ${bad.length?`<div class="note"><b>${bad.length} Sammlungen ohne Gesamtwertung:</b> ${bad.map(g=>`S ${g.nr} (${esc(zu(g.zuechterId).name)}${g.tiere.some(t=>t.punkte==='fehlt')?', fehlt':g.tiere.some(t=>t.punkte==='nbf')?', nb':g.tiere.some(t=>t.punkte==='nb')?', ob':g.tiere.every(hasP)?'':', unbewertet'}${g.tiere.length!==+S.schau.zgGroesse?', '+g.tiere.length+' Tiere':''})`).join(' · ')}</div>`:''}</section></div>`};
 
+function katalogHTML(){const R=rassen();const G=gruppen();const s=S.schau;const ZP=S.zgPreis||{};const bdg=v=>splitP(v).map(x=>`<span class="bad">${esc(x)}</span>`).join('');
+  const fromF=p=>p.art==='tier'?S.tiere.filter(t=>splitP(t.preis).includes(p.name)).sort((a,b)=>(b.punkte||0)-(a.punkte||0)):G.filter(g=>splitP(ZP[g.key]).includes(p.name)).sort((a,b)=>(b.sum||0)-(a.sum||0));
+  const ads=S.werbung.filter(a=>a.titel||a.text).map(a=>`<div class="ad"><span class="k">Anzeige</span><b>${esc(a.titel)}</b><span>${esc(a.text)}</span></div>`);
+  let h=`<div class="cover"><svg width="88" height="88" viewBox="0 0 46 46" aria-hidden="true"><ellipse cx="16" cy="12" rx="5" ry="11" fill="var(--paper-accent)"/><ellipse cx="29" cy="12" rx="5" ry="11" fill="var(--paper-accent)"/><ellipse cx="16" cy="12" rx="2.2" ry="7.5" fill="var(--paper-tint)"/><ellipse cx="29" cy="12" rx="2.2" ry="7.5" fill="var(--paper-tint)"/><circle cx="23" cy="30" r="14" fill="var(--paper-accent)"/><circle cx="18" cy="28" r="2" fill="#fff"/><circle cx="28" cy="28" r="2" fill="#fff"/><ellipse cx="23" cy="34" rx="2.4" ry="1.7" fill="#fff"/></svg>
+  <span class="kick">Ausstellungskatalog</span><h1>${esc(s.name)}</h1><div class="v">${esc(s.verein)}</div><div class="d">${esc([dStr(),s.ort].filter(Boolean).join(' · '))}</div>
+  <div class="d">${S.tiere.length} Tiere · ${G.length} Sammlungen · ${new Set(S.tiere.map(t=>t.zuechterId)).size} Aussteller</div></div><div class="pb"></div>`;
+  if(S.grussAn!==false)(S.grussworte||[]).filter(g=>g.text||g.name).forEach(g=>{const ps=String(g.text||'').split(/\n\s*\n/).map(p=>p.trim()).filter(Boolean).map(p=>`<p>${esc(p).replace(/\n/g,'<br>')}</p>`).join('');
+    h+=`<div class="gwp${g.bild?'':' nobild'}"><div><h2>${esc(g.titel||'Grußwort')}</h2>${ps}${g.name||g.funktion?`<div class="sg">${esc(g.name)}${g.funktion?`<br><span class="fu">${esc(g.funktion)}</span>`:''}</div>`:''}</div>${g.bild?`<img src="${g.bild}" alt="">`:''}</div><div class="pb"></div>`});
+  if(ads[0])h+=ads[0];
+  h+=`<h2 class="abt">Siegerliste</h2><table class="sieger"><tbody>${S.preise.map(p=>{const L=fromF(p);const T=p.art==='tier';return (L.length?L:[null]).map((x,i)=>`<tr><td style="width:38%">${i===0?`<b>${esc(p.name)}</b>`:''}</td><td>${L.length>1&&x?(i+1)+'. ':''}${x?esc(zu(x.zuechterId).name):'–'}</td><td>${x?(T?`Käfig ${x.kaefig}`:`S ${x.nr} · ${esc(x.rasse)} ${esc(x.farbe)}`):''}</td><td class="pt">${x?(T?fmtP(x):(x.sum!=null?fz(x.sum):'')):''}</td></tr>`).join('')}).join('')}</tbody></table><div class="pb"></div>`;
+  const L=sorted();let abt=null,rf=null,i=0;const M=judgedIdx();const head=`<thead><tr><th>S</th><th style="text-align:right">Käfig</th><th style="text-align:center">PR</th><th>Aussteller</th><th>Ge</th><th>Täto</th>${[1,2,3,4,5,6,7].map(k=>`<th class="ps">${k}</th>`).join('')}<th style="text-align:right">Punkte</th><th>Präd</th><th>Preis</th><th style="text-align:right">Verkauf</th></tr></thead>`;
+  const row=(t,au,zgc)=>`<tr><td class="zg">${zgc==null?'<span class="ez">EZ</span>':zgc}</td><td class="k">${t.kaefig??''}</td><td class="prl">${letterOf(t,M)}</td><td class="au">${au||''}</td><td>${t.geschlecht}${S.regeln.altjung&&t.alter==='jung'?' <span style="color:var(--paper-soft)">jt</span>':''}</td><td>${esc(t.tR)}${t.tL?' · '+esc(t.tL):''}</td>${[0,1,2,3,4,5,6].map(k=>`<td class="ps">${posV(t,k)}</td>`).join('')}<td class="pt">${fmtP(t)}</td><td class="pd">${praedT(t)}</td><td class="pr">${bdg(t.preis)}</td><td class="vk">${t.verkauf?fz(t.verkauf).replace(',0',',00'):''}</td></tr>`;
+  {const PRD=[['v','vorzüglich','97 und mehr'],['hv','hervorragend','96,5'],['sg','sehr gut','94 bis 96'],['g','gut','92 bis 93,5'],['b','befriedigend','90 bis 91,5'],['nb','nicht befriedigend','unter 90']];
+   const AB=[['S','Sammlung (Nummer)'],['EZ','Einzeltier, in keiner Sammlung'],['ZG I–III','Zuchtgruppe der Sammlung'],['1,0 / 0,1','Rammler / Häsin'],...(S.regeln.altjung?[['jt','Jungtier']]:[]),['Täto','Tätowierung rechts · links'],['1–7','Bewertungspositionen: 1 Gewicht (10), 2 Körperform, Typ und Bau (20), 3 Fellhaar (20), 4 bis 6 je 15, 7 Pflegezustand (5)'],['ob','ohne Bewertung'],['fehlt','Tier fehlt'],['PR','Preisrichter']];
+   const PRL=S.richter.liste.map((n,j)=>[LET[j],n]);
+   h+=`<div class="leg"><h2>Legende</h2><div><h3>Prädikate</h3><table><tbody>${PRD.map(([k,n,p])=>`<tr><td><b>${k}</b></td><td>${n}</td><td>${p} Punkte</td></tr>`).join('')}</tbody></table></div>
+   <div><h3>Abkürzungen</h3><table><tbody>${AB.map(([k,n])=>`<tr><td><b>${k}</b></td><td>${n}</td></tr>`).join('')}</tbody></table></div>
+   ${PRL.length?`<div><h3>Preisrichter</h3><table><tbody>${PRL.map(([k,n])=>`<tr><td><b>${k}</b></td><td>${esc(n)}</td></tr>`).join('')}</tbody></table>${S.richter.art==='ab'&&PRL.length>1?'<p style="margin-top:1mm;color:var(--paper-soft)">Abwechselnd je ein Tier in Käfigreihenfolge.</p>':''}</div>`:''}</div>`}
+  let open=false;
+  while(i<L.length){const t=L[i];const re_=rEntry(R,t.rasse,t.farbe);const a=re_>=0?R[re_].abt:'Weitere Rassen';
+    if(a!==abt){if(open){h+='</table>';open=false}h+=`<h2 class="abt">${esc(a)}</h2>`;abt=a;rf=null}
+    const k=t.rasse+'|'+t.farbe;if(k!==rf){if(open)h+='</table>';h+=`<h3 class="rf">${esc(t.rasse)} ${esc(t.farbe)}</h3><table>${head}`;open=true;rf=k}
+    const g=zgOf(t,G);
+    if(g){const z=zu(g.zuechterId);const lines=[`<b>${esc(z.name)}</b>${isGast(z)?'':''}`,esc(z.strasse),esc(z.ort),z.tel?'Tel. '+esc(z.tel):''].filter(Boolean);
+      h+='<tbody class="unit">';g.tiere.forEach((x,j)=>{const au=j<g.tiere.length-1?lines[j]:lines.slice(j).join('<br>');h+=row(x,au,j===0?g.nr:(j===1?(KLN[g.klasse]||''):''))});
+      if(g.ok||ZP[g.key])h+=`<tr class="sum"><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td><td class="pt">${g.ok?fz(g.sum):''}</td><td></td><td class="pr">${bdg(ZP[g.key])}</td><td></td></tr>`;h+='</tbody>';i+=g.tiere.length;continue}
+    const z=zu(t.zuechterId);h+=`<tbody class="unit">${row(t,`<b>${esc(z.name)}</b>${z.ort?'<br>'+esc(z.ort):''}`)}</tbody>`;i++}
+  if(open)h+='</table>';
+  h+=ads.slice(1).join('');
+  const byZ={};L.forEach(t=>{(byZ[t.zuechterId]=byZ[t.zuechterId]||[]).push(t.kaefig)});
+  h+=`<div class="pb"></div><h2 class="abt">Ausstellerverzeichnis</h2><div class="idx">${[...S.zuechter].filter(z=>byZ[z.id]).sort((a,b)=>a.name.localeCompare(b.name)).map(z=>`<div><b>${esc(z.name)}</b>, ${esc(z.ort)||'Ort fehlt'} · ${esc(z.verein)}${z.jugend?' · Jugend':''}<br><span style="color:var(--paper-soft)">Käfig ${byZ[z.id].join(', ')}</span></div>`).join('')}</div>`;
+  return h}
+V.katalog=()=>{return `<div class="stack"><div class="row"><button id="bPrintCat">Katalog drucken</button><span class="hint">Werbung pflegst du unter „Schau“, Preise im Reiter „Bewertung“.</span></div>
+ <article class="paper cat">${katalogHTML()}</article></div>`};
 
+/* ---------- Rendering & Ereignisse ---------- */
+function current(){const h=location.hash.slice(1);return TABS.some(t=>t[0]===h)?h:'schau'}
+function header(){document.getElementById('hName').textContent=S.schau.name||'Kaninchenschau';document.getElementById('hSub').textContent=[S.schau.verein,dStr(),S.schau.ort].filter(Boolean).join(' · ');document.getElementById('sampleTag').hidden=!S.sample}
+function render(){const c=current();
+  document.getElementById('tabs').innerHTML=TABS.map(([k,l],i)=>`<a href="#${k}" ${k===c?'aria-current="page"':''}><span class="n">${i+1}</span>${l}</a>`).join('');
+  try{document.getElementById('view').innerHTML=V[c]();header();bind(c);hbarInit()}
+  catch(err){document.getElementById('view').innerHTML=`<div class="note"><b>Dieser Reiter konnte nicht angezeigt werden.</b> Bitte diese Meldung an Claude schicken: ${esc(err&&err.message||err)}</div>`;console.error(err)}}
+/* Feste Scrollleiste unten: für jeden Bereich, der seitlich scrollt (.tbl), solange dessen eigene Leiste unter dem Bildschirmrand liegt. Selbst gezeichnet, damit sie auch bei ausgeblendeten System-Scrollleisten sichtbar bleibt. */
+const HB={el:null,src:null,ro:null,x:{}};
+function hbarPick(){const vh=window.innerHeight;return [...document.querySelectorAll('#view .tbl')].find(t=>{const r=t.getBoundingClientRect();return t.scrollWidth>t.clientWidth+1&&r.top<vh-60&&r.bottom>vh})||null}
+function hbarGeo(){const t=HB.src,trk=HB.el.querySelector('.trk');const W=trk.clientWidth;const tw=Math.max(32,Math.round(W*t.clientWidth/t.scrollWidth));return {W,tw,max:t.scrollWidth-t.clientWidth}}
+function hbarThumb(){const t=HB.src;if(!t||HB.el.hidden)return;const g=hbarGeo();const th=HB.el.querySelector('.thb');th.style.width=g.tw+'px';th.style.left=(g.max>0?t.scrollLeft/g.max*(g.W-g.tw):0)+'px'}
+function hbarUpdate(){const b=HB.el;if(!b)return;const t=hbarPick();HB.src=t;b.hidden=!t;if(!t)return;const r=t.getBoundingClientRect();
+  b.style.left=Math.max(0,r.left)+'px';b.style.right=Math.max(0,document.documentElement.clientWidth-r.right)+'px';hbarThumb()}
+function hbarInit(){if(!HB.el){const b=HB.el=document.getElementById('hbar');const trk=b.querySelector('.trk'),th=b.querySelector('.thb');
+    const to=x=>{const t=HB.src;if(!t)return;const g=hbarGeo();t.scrollLeft=Math.max(0,Math.min(g.max,x/(g.W-g.tw)*g.max))};
+    let drag=null;
+    th.addEventListener('pointerdown',e=>{e.preventDefault();e.stopPropagation();drag={x:e.clientX,l:parseFloat(th.style.left)||0};th.setPointerCapture(e.pointerId)});
+    th.addEventListener('pointermove',e=>{if(drag)to(drag.l+e.clientX-drag.x)});
+    const end=()=>drag=null;th.addEventListener('pointerup',end);th.addEventListener('pointercancel',end);
+    trk.addEventListener('pointerdown',e=>{if(e.target!==trk||!HB.src)return;const g=hbarGeo();const rr=trk.getBoundingClientRect();to(e.clientX-rr.left-g.tw/2)});
+    b.querySelectorAll('[data-hb]').forEach(x=>x.onclick=()=>{const t=HB.src;if(t)t.scrollLeft+=(+x.dataset.hb)*Math.max(120,t.clientWidth*.6)});
+    b.addEventListener('wheel',e=>{const t=HB.src;if(!t)return;e.preventDefault();t.scrollLeft+=Math.abs(e.deltaX)>Math.abs(e.deltaY)?e.deltaX:e.deltaY},{passive:false});
+    window.addEventListener('scroll',hbarUpdate,{passive:true});window.addEventListener('resize',hbarUpdate);
+    if(window.ResizeObserver)HB.ro=new ResizeObserver(hbarUpdate)}
+  if(HB.ro)HB.ro.disconnect();
+  document.querySelectorAll('#view .tbl').forEach((t,i)=>{const k=current()+(t.id||i);if(HB.x[k])t.scrollLeft=HB.x[k];
+    t.addEventListener('scroll',()=>{HB.x[k]=t.scrollLeft;if(HB.src===t)hbarThumb()});
+    if(HB.ro){HB.ro.observe(t);if(t.firstElementChild)HB.ro.observe(t.firstElementChild)}});
+  hbarUpdate()}
+function commit(re=true){save();if(re)render()}
+function shrink(file,cb){const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=()=>{const m=480,sc=Math.min(1,m/Math.max(im.width,im.height));const cv=document.createElement('canvas');cv.width=Math.round(im.width*sc);cv.height=Math.round(im.height*sc);cv.getContext('2d').drawImage(im,0,0,cv.width,cv.height);cb(cv.toDataURL('image/jpeg',.8))};im.onerror=()=>ask('Das Bild konnte nicht gelesen werden. Bitte JPG oder PNG wählen.',null);im.src=r.result};r.readAsDataURL(file)}
+function bind(c){const $=id=>document.getElementById(id);const all=s=>document.querySelectorAll(s);
+  if(c==='schau'){
+    const map={s_name:'name',s_verein:'verein',s_vnr:'vereinNr',s_datum:'datum',s_ort:'ort',s_leit:'leitung',s_rassen:'rassen',s_zg:'zgGroesse'};
+    Object.entries(map).forEach(([id,f])=>$(id).addEventListener('input',e=>{S.schau[f]=f==='zgGroesse'?+e.target.value:e.target.value;save();header()}));
+    $('s_datum').addEventListener('change',()=>render());
+    all('[data-ad] input').forEach(i=>i.addEventListener('input',e=>{const a=S.werbung.find(x=>x.id===e.target.closest('[data-ad]').dataset.ad);a[e.target.dataset.f]=e.target.value;save()}));
+    all('[data-delad]').forEach(b=>b.onclick=()=>{S.werbung=S.werbung.filter(a=>a.id!==b.dataset.delad);commit()});
+    $('addAd').onclick=()=>{S.werbung.push({id:uid(),titel:'',text:''});commit()}
+    const gwOf=el=>(S.grussworte||[]).find(x=>x.id===el.closest('[data-gw]').dataset.gw);
+    $('gwAn').onchange=e=>{S.grussAn=e.target.checked;save()};
+    all('[data-gw] input[data-f],[data-gw] textarea[data-f]').forEach(i=>i.addEventListener('input',e=>{gwOf(e.target)[e.target.dataset.f]=e.target.value;save()}));
+    all('[data-gwbild]').forEach(i=>i.onchange=e=>{const f=e.target.files[0];if(!f)return;shrink(f,u=>{gwOf(e.target).bild=u;commit()})});
+    all('[data-gwpick]').forEach(b=>b.onclick=()=>b.parentElement.querySelector('[data-gwbild]').click());
+    all('[data-gwnobild]').forEach(b=>b.onclick=()=>{gwOf(b).bild='';commit()});
+    all('[data-delgw]').forEach(b=>b.onclick=()=>ask('Dieses Grußwort wird gelöscht.',()=>{S.grussworte=S.grussworte.filter(x=>x.id!==b.dataset.delgw);commit()}));
+    $('addGw').onclick=()=>{(S.grussworte=S.grussworte||[]).push({id:uid(),titel:'Grußwort',name:'',funktion:'',text:'',bild:''});S.grussAn=S.grussAn!==false;commit()}}
+  if(c==='zuechter'){
+    const reset=()=>{$('z_id').value='';$('zForm').reset();$('z_btn').textContent='Hinzufügen';$('z_cancel').hidden=true};
+    $('zForm').onsubmit=e=>{e.preventDefault();const d={name:$('z_name').value.trim(),strasse:$('z_str').value.trim(),ort:$('z_ort').value.trim(),tel:$('z_tel').value.trim(),verein:$('z_verein').value.trim(),mitglied:$('z_mit').checked,jugend:$('z_jug').checked};
+      const id=$('z_id').value;if(id)Object.assign(S.zuechter.find(z=>z.id===id),d);else S.zuechter.push({id:uid(),...d});commit();$('z_name').focus()};
+    $('z_cancel').onclick=reset;
+    all('[data-editz]').forEach(b=>b.onclick=()=>{const z=S.zuechter.find(x=>x.id===b.dataset.editz);$('z_id').value=z.id;$('z_name').value=z.name;$('z_str').value=z.strasse||'';$('z_ort').value=z.ort||'';$('z_tel').value=z.tel||'';$('z_verein').value=z.verein||'';$('z_mit').checked=!!z.mitglied;$('z_jug').checked=!!z.jugend;$('z_btn').textContent='Speichern';$('z_cancel').hidden=false;$('z_name').focus();$('zForm').scrollIntoView({block:'center',behavior:'smooth'})});
+    all('[data-delz]').forEach(b=>b.onclick=()=>{const n=S.tiere.filter(t=>t.zuechterId===b.dataset.delz).length;const go=()=>{S.tiere=S.tiere.filter(t=>t.zuechterId!==b.dataset.delz);S.zuechter=S.zuechter.filter(z=>z.id!==b.dataset.delz);commit()};n?ask(`${n} Tiere dieses Ausstellers werden mit gelöscht.`,go):go()})}
+  if(c==='tiere'){
+    const fill=()=>{const fs=farbenOf(rassen(),$('t_r').value);$('t_f').innerHTML=fs.length?fs.map(f=>`<option value="${esc(f)}">${esc(f)}</option>`).join(''):`<option value="">${$('t_r').value?'keine Farbenschläge':'erst Rasse wählen'}</option>`};
+    const ens=(sel,v)=>{if(v&&![...sel.options].some(o=>o.value===v))sel.add(new Option(v,v))};
+    $('t_r').addEventListener('change',fill);
+    const n=+S.schau.zgGroesse||4;const setTR=()=>{$('t_tr').value=zu($('t_z').value).verein||''};$('t_z').addEventListener('change',setTR);setTR();
+    const mode=()=>document.querySelector('[name=t_mode]:checked').value;const showMode=()=>{$('t_single').hidden=mode()!=='einzel';$('t_group').hidden=mode()!=='zg'};
+    all('[name=t_mode]').forEach(r=>r.onchange=showMode);
+    const num=v=>{const x=parseFloat(String(v).replace(',','.'));return isNaN(x)?null:x};
+    $('t_cancel').onclick=()=>render();
+    $('tForm').onsubmit=e=>{e.preventDefault();const base={zuechterId:$('t_z').value,rasse:$('t_r').value.trim(),farbe:$('t_f').value.trim(),tR:$('t_tr').value.trim()};if($('t_aj'))base.alter=$('t_aj').value;const nv=$('t_nv').checked;const id=$('t_id').value;
+      if(id){const t=S.tiere.find(x=>x.id===id);Object.assign(t,base,{geschlecht:$('t_s').value,tL:$('t_tl').value.trim(),zg:nv?'':$('t_zg').value.trim().toUpperCase(),verkauf:num($('t_vk').value),nurVerkauf:nv});if(nv)t.punkte=null;commit();return}
+      const m=mode();
+      if(m==='zg'){const used=new Set(S.tiere.filter(t=>t.zuechterId===base.zuechterId&&t.rasse===base.rasse&&t.farbe===base.farbe&&t.zg).map(t=>t.zg));const L=[...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'].find(c=>!used.has(c));
+        for(let i=0;i<n;i++)S.tiere.push({...base,id:uid(),seq:S.nextSeq++,kaefig:null,geschlecht:$('g_s'+i).value,tL:$('g_tl'+i).value.trim(),zg:L,punkte:null,preis:'',verkauf:num($('g_vk'+i).value),richter:'',nurVerkauf:false});S.zgKlasse[[base.zuechterId,base.rasse,base.farbe,L].join('|')]=$('g_kl').value}
+      else S.tiere.push({...base,id:uid(),seq:S.nextSeq++,kaefig:null,geschlecht:$('t_s').value,tL:$('t_tl').value.trim(),zg:nv?'':$('t_zg').value.trim().toUpperCase(),punkte:null,preis:'',verkauf:num($('t_vk').value),richter:'',nurVerkauf:nv});
+      commit();$('t_z').value=base.zuechterId;if($('t_aj')&&base.alter)$('t_aj').value=base.alter;ens($('t_r'),base.rasse);$('t_r').value=base.rasse;fill();ens($('t_f'),base.farbe);$('t_f').value=base.farbe;$('t_tr').value=base.tR;document.querySelector(`[name=t_mode][value=${m}]`).checked=true;showMode();(m==='zg'?$('g_tl0'):$('t_tl')).focus()};
+    all('[data-editt]').forEach(b=>b.onclick=()=>{const t=S.tiere.find(x=>x.id===b.dataset.editt);document.querySelector('[name=t_mode][value=einzel]').checked=true;showMode();
+      $('t_id').value=t.id;$('t_z').value=t.zuechterId;ens($('t_r'),t.rasse);$('t_r').value=t.rasse;fill();ens($('t_f'),t.farbe);$('t_f').value=t.farbe;$('t_tr').value=t.tR||'';$('t_s').value=t.geschlecht;$('t_tl').value=t.tL||'';$('t_zg').value=t.zg||'';$('t_vk').value=t.verkauf??'';$('t_nv').checked=!!t.nurVerkauf;if($('t_aj'))$('t_aj').value=t.alter||'alt';
+      $('t_btn').textContent='Änderung speichern';$('t_cancel').hidden=false;$('t_edit').hidden=false;$('t_edit').textContent=`Käfig ${t.kaefig??'neu'} wird bearbeitet`;$('tForm').scrollIntoView({block:'center',behavior:'smooth'});$('t_tl').focus()});
+    all('[data-rg]').forEach(c=>c.onchange=()=>{S.regeln[c.dataset.rg]=c.checked;RGOPEN=true;commit()});
+    $('rgReset').onclick=()=>{S.regeln=REG_DEF();RGOPEN=true;commit()};if(RGOPEN)$('rgBox').open=true;$('rgBox').ontoggle=()=>RGOPEN=$('rgBox').open;
+    $('bCages').onclick=()=>{assignCages();commit()};
+    all('[data-delt]').forEach(b=>b.onclick=()=>{S.tiere=S.tiere.filter(t=>t.id!==b.dataset.delt);commit()});
+    all('[data-kl]').forEach(s=>s.onchange=()=>{S.zgKlasse[s.dataset.kl]=s.value;save()})}
+  if(c==='karten'){
+    if(S.druck.art==='ma'){$('d_a').onchange=e=>{S.druck.art=e.target.value;commit()};$('ma_ms').onchange=e=>{S.schau.meldeschluss=e.target.value;commit()};
+      $('ma_n').onchange=e=>{S.druck.maN=+e.target.value||1;commit()};$('bPrintCards').onclick=printMA;return}
+    if(S.druck.art==='mb'){const num=v=>{const x=parseFloat(String(v).replace(',','.'));return isNaN(x)?0:x};
+      $('d_a').onchange=e=>{S.druck.art=e.target.value;commit()};$('mb_w').onchange=e=>{S.druck.mbW=e.target.value;commit()};
+      all('[data-fee]').forEach(i=>i.onchange=()=>{S.schau[i.dataset.fee]=num(i.value);commit()});
+      $('bPrintCards').onclick=printMB;return}
+    const up=()=>{S.druck={bem:S.druck.bem,art:$('d_a').value,modus:$('d_m').value,dx:+$('d_dx').value||0,dy:+$('d_dy').value||0,von:$('d_v').value,bis:$('d_b').value};commit()};
+    ['d_a','d_m','d_dx','d_dy','d_v','d_b'].forEach(id=>$(id).addEventListener('change',up));
+    $('d_bem').onchange=e=>{S.druck.bem=e.target.checked;commit()};
+    $('r_l').addEventListener('change',e=>{S.richter.liste=e.target.value.split('\n').map(x=>x.trim()).filter(Boolean);commit()});
+    $('r_a').onchange=e=>{S.richter.art=e.target.value;commit()};
+    if($('bRichter'))$('bRichter').onclick=()=>{const n=$('pr_n').value.trim(),v=+$('pr_v').value||1,b=+$('pr_b').value||1e9;S.tiere.forEach(t=>{if(t.kaefig>=v&&t.kaefig<=b)t.richter=n});commit()};
+    $('bPrintCards').onclick=printCards}
+  if(c==='bewertung'){
+    $('b_f').onchange=e=>{BF=e.target.value;render()};
+    const prog=()=>$('progress').textContent=`${S.tiere.filter(t=>!t.nurVerkauf&&erfasst(t)).length} von ${S.tiere.filter(t=>!t.nurVerkauf).length} erfasst`;
+    const paint=t=>{const f=t.punkte==='fehlt',nb=t.punkte==='nbf';for(let k=0;k<7;k++){const x=document.getElementById(`ps_${t.id}_${k}`);if(x){const v=Array.isArray(t.pos)?t.pos[k]:null;x.classList.toggle('fx',f&&(v==='fehlt'||v==='-'));x.classList.toggle('nbx',nb&&(v==='nb'||v==='-'))}}const g=document.getElementById('p_'+t.id);if(g){g.classList.toggle('fx',f);g.classList.toggle('nbx',nb)}};
+    const upd=t=>{document.querySelector(`[data-pd="${t.id}"]`).innerHTML=pdHtml(t);paint(t);const g=zgOf(t,gruppen());if(g){const c=[...document.querySelectorAll('[data-zs]')].find(x=>x.dataset.zs===g.key);if(c)c.textContent=zgSumTxt(g)}};
+    S.tiere.forEach(t=>paint(t));
+    const gIn=[...all('[data-p]')];
+    gIn.forEach((inp,i)=>{inp.addEventListener('change',()=>{const v=inp.value.trim().replace(',','.').toLowerCase();const t=S.tiere.find(x=>x.id===inp.dataset.p);
+      if(v===''){t.punkte=null;inp.className='pts'}else if(v==='nb'){t.punkte='nbf';inp.className='pts ok';inp.value='nb'}else if(v==='fehlt'){t.punkte='fehlt';inp.className='pts ok';inp.value='fehlt'}else if(['ob','o.b.','o. b.'].includes(v)){t.punkte='nb';inp.className='pts ok';inp.value='ob'}
+      else{const n=parseFloat(v);if(isNaN(n)||n<0||n>100){inp.className='pts bad';inp.title='Bitte eine Zahl zwischen 0 und 100, nb, ob oder fehlt eingeben';return}t.punkte=n;inp.className='pts ok';inp.value=fz(n)}
+      upd(t);save();prog()});
+      inp.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();inp.dispatchEvent(new Event('change'));const nx=gIn[i+1]||gIn[i];nx.focus();nx.select()}})});
+    all('[data-pos]').forEach(inp=>{inp.addEventListener('change',()=>{const t=S.tiere.find(x=>x.id===inp.dataset.pos);const k=+inp.dataset.i;const v=inp.value.trim().replace(',','.');
+      if(!Array.isArray(t.pos))t.pos=[null,null,null,null,null,null,null];
+      const row=inp.closest('tr');const setI=(j,val,cls)=>{const x=row.querySelector(`[data-i="${j}"]`);if(x){x.value=val;x.className='pos'+(cls?' '+cls:'')}};const gI=$('p_'+t.id);
+      const MK=['nb','fehlt'];const wasNb=MK.includes(t.pos[k]);const vl=v.toLowerCase();
+      if(MK.includes(vl)){t.pos[k]=vl;inp.className='pos ok';inp.value=vl;for(let j=0;j<7;j++){if(j>k){t.pos[j]='-';setI(j,'-','ok')}else if(j<k&&MK.includes(t.pos[j])){t.pos[j]=null;setI(j,'')}}t.punkte=vl==='nb'?'nbf':'fehlt';if(gI){gI.value=vl;gI.className='pts ok'}upd(t);save();prog();return}
+      const isMk=t.punkte==='nbf'||t.punkte==='fehlt';
+      if(wasNb||isMk&&t.pos.includes('-')){for(let j=k+1;j<7;j++)if(t.pos[j]==='-'){t.pos[j]=null;setI(j,'')}if(isMk){t.punkte=null;if(gI){gI.value='';gI.className='pts'}}}
+      if(v==='-'){t.pos[k]=null;inp.value='';inp.className='pos'}
+      else if(v===''){t.pos[k]=null;inp.className='pos'}else{const n=parseFloat(v);if(isNaN(n)||n<0||n>POSMAX[k]||Math.round(n*2)!==n*2){inp.className='pos bad';inp.title=`0 bis ${POSMAX[k]} in halben Punkten, oder nb bzw. fehlt`;return}t.pos[k]=n;inp.className='pos ok';inp.value=fz(n)}
+      if(posFull(t)){const sm=t.pos.reduce((a,b)=>a+b,0);t.punkte=sm;const g=$('p_'+t.id);if(g){g.value=fz(sm);g.className='pts ok'}}
+      upd(t);save();prog()});
+      inp.addEventListener('keydown',e=>{if(e.key!=='Enter')return;e.preventDefault();inp.dispatchEvent(new Event('change'));const k=+inp.dataset.i;const row=inp.closest('tr');let nx=null;
+        if(k<6)nx=row.querySelector(`[data-i="${k+1}"]`);else{let r=row.nextElementSibling;while(r&&!r.querySelector('[data-i="0"]'))r=r.nextElementSibling;nx=r?r.querySelector('[data-i="0"]'):null}
+        if(nx){nx.focus();nx.select()}})});
+    all('[data-pr]').forEach(i=>i.addEventListener('input',()=>{S.tiere.find(t=>t.id===i.dataset.pr).preis=i.value.trim();save()}));
+    all('[data-zp]').forEach(i=>i.addEventListener('input',()=>{S.zgPreis[i.dataset.zp]=i.value.trim();save()}));
+    $('bAuto').onclick=()=>ask('Die Preise aus dem Reiter Sieger werden in die Preisfelder eingetragen. Andere, von Hand eingetragene Preise bleiben stehen.',()=>{autoPreise();commit()});
+    $('bClearP').onclick=()=>ask('Alle Punkte und Preise werden gelöscht. Tiere und Züchter bleiben.',()=>{S.tiere.forEach(t=>{t.punkte=null;t.pos=null;t.preis=''});S.zgPreis={};commit()})}
+  if(c==='sieger'){
+    all('[data-pz] [data-f]').forEach(i=>i.addEventListener('change',e=>{const p=S.preise.find(x=>x.id===e.target.closest('[data-pz]').dataset.pz);p[e.target.dataset.f]=e.target.value;commit()}));
+    all('[data-delpz]').forEach(b=>b.onclick=()=>{S.preise=S.preise.filter(p=>p.id!==b.dataset.delpz);commit()});
+    $('bAuto2').onclick=()=>ask('Die Preise werden in die Preisfelder im Reiter Bewertung eingetragen. Andere, von Hand eingetragene Preise bleiben stehen.',()=>{autoPreise();commit()});
+    $('addPz').onclick=()=>{S.preise.push({id:uid(),name:'Neuer Preis',art:'tier',geschl:'alle',kreis:'alle'});commit()}}
+  if(c==='katalog')$('bPrintCat').onclick=()=>{document.getElementById('print').innerHTML=`<div class="paper cat">${katalogHTML()}</div>`;doPrint()}}
+function printCards(){const l=cardSel(),d=S.druck,test=d.modus==='test';let h='';
+  for(let i=0;i<l.length;i+=4){h+='<div class="sheet">';l.slice(i,i+4).forEach((x,j)=>{const html=karte(x,test);
+    h+=html.replace('<div class="pc','<div style="left:'+((j%2)*105+d.dx)+'mm;top:'+(Math.floor(j/2)*148.5+d.dy)+'mm" class="pc')});h+='</div>'}
+  document.getElementById('print').innerHTML=h;doPrint()}
+function doPrint(){if(inFrame){ask('Drucken geht in dieser Vorschau nicht. Bitte die heruntergeladene Programmdatei im Browser öffnen und dort auf Drucken klicken.',null);return}try{window.print()}catch(e){}}
+function ask(msg,yes){const b=document.getElementById('confirmBar');b.hidden=false;
+  b.innerHTML=yes?`<b>Sicher?</b> ${esc(msg)} <button class="small" id="cy">Ja, weiter</button> <button class="ghost small" id="cn">Abbrechen</button>`:`${esc(msg)} <button class="ghost small" id="cn">Schließen</button>`;
+  if(yes)document.getElementById('cy').onclick=()=>{b.hidden=true;yes()};document.getElementById('cn').onclick=()=>b.hidden=true;b.scrollIntoView({block:'center',behavior:'smooth'})}
 
-
-
-
-
-                    <!-- Pager-->
-
-                </div>
-            </div>
-        </div>
-        <!-- Footer-->
-        <footer class="border-top">
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-md-10 col-lg-8 col-xl-7">
-                        <div class="small text-center text-muted fst-italic">Copyright &copy; Jasmin Müller 2024</div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-    </body>
-</html>
+document.getElementById('bExport').onclick=()=>{if(inFrame){ask('In dieser Vorschau kann keine Datei gespeichert werden. Deine Eingaben bleiben automatisch im Browser. Für eine Datei die Offline-Version öffnen.',null);return}
+  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(S)],{type:'application/json'}));a.download=`kaninchenschau-${S.schau.datum||'daten'}.json`;document.body.appendChild(a);a.click();a.remove()};
+document.getElementById('fImport').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const d=JSON.parse(r.result);if(!d.schau||!d.tiere||d.v!==2)throw 0;S=d;commit()}catch(err){ask('Diese Datei stammt nicht aus diesem Programm. Es wurde nichts geändert.',null)}};r.readAsText(f)};
+document.getElementById('bNew').onclick=()=>ask('Tiere und Bewertungen werden gelöscht. Züchter, Rassen, Grußworte, Werbung und Preise bleiben für die nächste Schau.',()=>{S.tiere=[];S.zgKlasse={};S.sample=false;S.schau.datum='';location.hash='tiere';commit()});
+window.addEventListener('hashchange',render);
+if(!S.mig5){S.grussworte=[];S.zgPreis=S.zgPreis||{};S.tiere.forEach(t=>{if(t.nurVerkauf==null)t.nurVerkauf=false});autoPreise();S.mig5=true;save()}
+if(!S.mig6){S.schau.rassen=RASSEN_TXT;const R6=rassen();const names=new Set(R6.map(r=>r.name));const abk=n=>(String(n).match(/\(([^)]+)\)\s*$/)||[])[1];const map={};
+  S.tiere.forEach(t=>{t.farbe=(t.farbe||'').trim();if(!names.has(t.rasse)){const hit=R6.find(r=>abk(r.name)===abk(t.rasse));if(hit)map[t.rasse]=hit.name}});
+  const rekey=o=>{const n={};Object.entries(o||{}).forEach(([k,v])=>{const q=k.split('|');if(map[q[1]])q[1]=map[q[1]];n[q.join('|')]=v});return n};
+  S.zgKlasse=rekey(S.zgKlasse);S.zgPreis=rekey(S.zgPreis);S.tiere.forEach(t=>{if(map[t.rasse])t.rasse=map[t.rasse]});S.mig6=true;save()}
+if(inFrame)document.getElementById('frameNote').hidden=false;
+render();
+</script>
